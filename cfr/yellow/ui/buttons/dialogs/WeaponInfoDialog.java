@@ -6,6 +6,7 @@
  *  arc.graphics.Color
  *  arc.scene.Element
  *  arc.scene.ui.Dialog
+ *  arc.scene.ui.Label
  *  arc.scene.ui.ScrollPane
  *  arc.scene.ui.layout.Table
  *  mindustry.graphics.Pal
@@ -17,6 +18,7 @@ import arc.Core;
 import arc.graphics.Color;
 import arc.scene.Element;
 import arc.scene.ui.Dialog;
+import arc.scene.ui.Label;
 import arc.scene.ui.ScrollPane;
 import arc.scene.ui.layout.Table;
 import kotlin.Metadata;
@@ -48,16 +50,17 @@ extends BaseDialog {
         info.margin(10.0f);
         info.table(arg_0 -> WeaponInfoDialog.show$lambda$0(weapon, arg_0)).row();
         info.add((CharSequence)"Description").color(Pal.accent).fillX().padTop(10.0f).row();
-        info.add((CharSequence)weapon.description).color(Color.lightGray).row();
-        info.add((CharSequence)"General Stats").color(Pal.accent).fillX().padTop(10.0f).row();
+        ((Label)info.add((CharSequence)weapon.description).color(Color.lightGray).get()).setWrap(true);
+        info.row();
+        info.add((CharSequence)"General Stats").color(Pal.accent).fillX().padTop(3.0f).row();
         StringBuilder stringBuilder2 = stringBuilder = new StringBuilder();
         Table table = info;
         boolean bl = false;
-        $this$show_u24lambda_u241.append("[lightgray]Reload:[] " + weapon.reload / 60.0f + '\n');
+        $this$show_u24lambda_u241.append("[lightgray]Reload:[] " + weapon.reload / 60.0f + " seconds\n");
         $this$show_u24lambda_u241.append("[lightgray]X, Y:[] " + weapon.x + ", " + weapon.y + '\n');
         $this$show_u24lambda_u241.append("[lightgray]Rotate:[] " + YellowUtilsKtKt.yesNo(weapon.rotate) + '\n');
-        $this$show_u24lambda_u241.append("[lightgray]Shoot Cone:[] " + weapon.shootCone + '\n');
-        $this$show_u24lambda_u241.append("[lightgray]Rotate Speed:[] " + weapon.rotateSpeed + '\n');
+        $this$show_u24lambda_u241.append("[lightgray]Shoot Cone:[] " + weapon.shootCone + " degrees\n");
+        $this$show_u24lambda_u241.append("[lightgray]Rotate Speed:[] " + weapon.rotateSpeed + " degrees\n");
         String string = stringBuilder.toString();
         Intrinsics.checkNotNullExpressionValue(string, "StringBuilder().apply(builderAction).toString()");
         table.add((CharSequence)string);
