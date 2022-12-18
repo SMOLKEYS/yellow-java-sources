@@ -60,7 +60,10 @@ extends BaseDialog {
         $this$show_u24lambda_u241.append("[lightgray]X, Y:[] " + weapon.x + ", " + weapon.y + '\n');
         $this$show_u24lambda_u241.append("[lightgray]Rotate:[] " + YellowUtilsKtKt.yesNo(weapon.rotate) + '\n');
         $this$show_u24lambda_u241.append("[lightgray]Shoot Cone:[] " + weapon.shootCone + " degrees\n");
-        $this$show_u24lambda_u241.append("[lightgray]Rotate Speed:[] " + weapon.rotateSpeed + " degrees\n");
+        $this$show_u24lambda_u241.append("[lightgray]Base Rotation:[] " + weapon.baseRotation + " degrees\n");
+        if (weapon.rotate) {
+            $this$show_u24lambda_u241.append("[lightgray]Rotate Speed:[] " + weapon.rotateSpeed + " degrees\n");
+        }
         String string = stringBuilder.toString();
         Intrinsics.checkNotNullExpressionValue(string, "StringBuilder().apply(builderAction).toString()");
         table.add((CharSequence)string);

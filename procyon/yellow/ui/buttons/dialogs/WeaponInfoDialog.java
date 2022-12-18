@@ -159,44 +159,62 @@ public class WeaponInfoDialog extends BaseDialog
         //   297: new             Ljava/lang/StringBuilder;
         //   300: dup            
         //   301: invokespecial   java/lang/StringBuilder.<init>:()V
-        //   304: ldc             "[lightgray]Rotate Speed:[] "
+        //   304: ldc             "[lightgray]Base Rotation:[] "
         //   306: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
         //   309: aload_1         /* weapon */
-        //   310: getfield        yellow/type/NameableWeapon.rotateSpeed:F
+        //   310: getfield        yellow/type/NameableWeapon.baseRotation:F
         //   313: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
         //   316: ldc             " degrees\n"
         //   318: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
         //   321: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
         //   324: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
         //   327: pop            
-        //   328: nop            
-        //   329: aload           6
-        //   331: aload_3        
-        //   332: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
-        //   335: dup            
-        //   336: ldc             "StringBuilder().apply(builderAction).toString()"
-        //   338: invokestatic    kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
-        //   341: checkcast       Ljava/lang/CharSequence;
-        //   344: invokevirtual   arc/scene/ui/layout/Table.add:(Ljava/lang/CharSequence;)Larc/scene/ui/layout/Cell;
-        //   347: pop            
-        //   348: new             Larc/scene/ui/ScrollPane;
-        //   351: dup            
-        //   352: aload_2         /* info */
-        //   353: checkcast       Larc/scene/Element;
-        //   356: invokespecial   arc/scene/ui/ScrollPane.<init>:(Larc/scene/Element;)V
-        //   359: astore_3        /* paenu */
-        //   360: aload_0         /* this */
-        //   361: getfield        mindustry/ui/dialogs/BaseDialog.cont:Larc/scene/ui/layout/Table;
-        //   364: aload_3         /* paenu */
-        //   365: checkcast       Larc/scene/Element;
-        //   368: invokevirtual   arc/scene/ui/layout/Table.add:(Larc/scene/Element;)Larc/scene/ui/layout/Cell;
-        //   371: pop            
-        //   372: aload_0         /* this */
-        //   373: invokespecial   mindustry/ui/dialogs/BaseDialog.show:()Larc/scene/ui/Dialog;
-        //   376: dup            
-        //   377: ldc             "super.show()"
-        //   379: invokestatic    kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
-        //   382: areturn        
+        //   328: aload_1         /* weapon */
+        //   329: getfield        yellow/type/NameableWeapon.rotate:Z
+        //   332: ifeq            368
+        //   335: aload           $this$show_u24lambda_u241
+        //   337: new             Ljava/lang/StringBuilder;
+        //   340: dup            
+        //   341: invokespecial   java/lang/StringBuilder.<init>:()V
+        //   344: ldc             "[lightgray]Rotate Speed:[] "
+        //   346: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   349: aload_1         /* weapon */
+        //   350: getfield        yellow/type/NameableWeapon.rotateSpeed:F
+        //   353: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
+        //   356: ldc             " degrees\n"
+        //   358: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   361: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
+        //   364: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   367: pop            
+        //   368: nop            
+        //   369: aload           6
+        //   371: aload_3        
+        //   372: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
+        //   375: dup            
+        //   376: ldc             "StringBuilder().apply(builderAction).toString()"
+        //   378: invokestatic    kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
+        //   381: checkcast       Ljava/lang/CharSequence;
+        //   384: invokevirtual   arc/scene/ui/layout/Table.add:(Ljava/lang/CharSequence;)Larc/scene/ui/layout/Cell;
+        //   387: pop            
+        //   388: new             Larc/scene/ui/ScrollPane;
+        //   391: dup            
+        //   392: aload_2         /* info */
+        //   393: checkcast       Larc/scene/Element;
+        //   396: invokespecial   arc/scene/ui/ScrollPane.<init>:(Larc/scene/Element;)V
+        //   399: astore_3        /* paenu */
+        //   400: aload_0         /* this */
+        //   401: getfield        mindustry/ui/dialogs/BaseDialog.cont:Larc/scene/ui/layout/Table;
+        //   404: aload_3         /* paenu */
+        //   405: checkcast       Larc/scene/Element;
+        //   408: invokevirtual   arc/scene/ui/layout/Table.add:(Larc/scene/Element;)Larc/scene/ui/layout/Cell;
+        //   411: pop            
+        //   412: aload_0         /* this */
+        //   413: invokespecial   mindustry/ui/dialogs/BaseDialog.show:()Larc/scene/ui/Dialog;
+        //   416: dup            
+        //   417: ldc             "super.show()"
+        //   419: invokestatic    kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
+        //   422: areturn        
+        //    StackMapTable: 00 01 FF 01 70 00 07 07 00 02 07 00 64 07 00 21 07 00 7E 07 00 7E 01 07 00 21 00 00
         // 
         // The error that occurred was:
         // 
