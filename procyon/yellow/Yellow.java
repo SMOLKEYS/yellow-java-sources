@@ -26,12 +26,14 @@ import mindustry.Vars;
 import mindustry.game.EventType;
 import arc.util.Log;
 import yellow.ui.buttons.dialogs.FoodDialog;
+import yellow.ui.buttons.dialogs.WeaponInfoDialog;
 import yellow.ui.buttons.YellowWeaponSwitch;
 import mindustry.mod.Mod;
 
 public class Yellow extends Mod
 {
     public static YellowWeaponSwitch weaponSwitch;
+    public static WeaponInfoDialog weaponInfo;
     public static FoodDialog food;
     
     public Yellow() {
@@ -72,5 +74,6 @@ public class Yellow extends Mod
     
     static {
         Yellow.weaponSwitch = new YellowWeaponSwitch();
+        Yellow.weaponInfo = new WeaponInfoDialog();
     }
 }

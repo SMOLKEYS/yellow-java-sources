@@ -13,7 +13,7 @@ import mindustry.type.Weapon;
 public class NameableWeapon
 extends Weapon {
     public String displayName = "displayed weapon name";
-    public String description;
+    public String description = "[gray]<no desc>[]";
 
     public NameableWeapon(String name, String displayName) {
         super(name);
@@ -21,9 +21,7 @@ extends Weapon {
             throw new NullPointerException("displayName of weapon " + name + " cannot be null.");
         }
         this.displayName = displayName;
-        if (this.description == null) {
-            this.description = this.descriptionLocalized();
-        }
+        this.description = this.descriptionLocalized();
     }
 
     public String descriptionLocalized() {

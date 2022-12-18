@@ -36,9 +36,11 @@ import mindustry.type.Weapon;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
 import org.jetbrains.annotations.NotNull;
+import yellow.Yellow;
 import yellow.entities.units.entity.YellowUnitEntity;
 import yellow.internal.util.YellowUtilsKt;
 import yellow.type.DisableableWeapon;
+import yellow.type.NameableWeapon;
 import yellow.world.meta.YellowStats;
 
 @Metadata(mv={1, 7, 1}, k=1, xi=48, d1={"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0016\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0014\u0010\u000b\u001a\u00020\f2\n\u0010\r\u001a\u00060\u000ej\u0002`\u000fH\u0016J\b\u0010\u0010\u001a\u00020\fH\u0016R\u001a\u0010\u0005\u001a\u00020\u0006X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\n\u00a8\u0006\u0011"}, d2={"Lyellow/entities/units/YellowUnitType;", "Lmindustry/type/UnitType;", "name", "", "(Ljava/lang/String;)V", "maxLives", "", "getMaxLives", "()I", "setMaxLives", "(I)V", "draw", "", "unit", "Lmindustry/gen/Unit;", "Lkotmindy/mindustry/MUnit;", "setStats", "yellow-java"})
@@ -112,7 +114,9 @@ extends UnitType {
         return (Unit)new YellowUnitEntity();
     }
 
-    private static final void setStats$lambda$3$lambda$2$lambda$1() {
+    private static final void setStats$lambda$3$lambda$2$lambda$1(Weapon $it) {
+        Intrinsics.checkNotNullExpressionValue($it, "it");
+        Yellow.weaponInfo.show((NameableWeapon)$it);
     }
 
     private static final void setStats$lambda$3$lambda$2(Table $me, Weapon it) {
@@ -121,7 +125,7 @@ extends UnitType {
         DisableableWeapon suse = (DisableableWeapon)it;
         if (!suse.mirroredVersion) {
             $me.add((CharSequence)suse.displayName);
-            $me.button("?", YellowUnitType::setStats$lambda$3$lambda$2$lambda$1).size(35.0f);
+            $me.button("?", () -> YellowUnitType.setStats$lambda$3$lambda$2$lambda$1(it)).size(35.0f);
             $me.row();
             YellowUtilsKt.INSTANCE.seperator($me, 290.0f, 4.0f);
             $me.row();

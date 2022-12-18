@@ -15,13 +15,12 @@ public class NameableWeapon extends Weapon
     public NameableWeapon(final String name, final String displayName) {
         super(name);
         this.displayName = "displayed weapon name";
+        this.description = "[gray]<no desc>[]";
         if (displayName == null) {
             throw new NullPointerException("displayName of weapon " + name + " cannot be null.");
         }
         this.displayName = displayName;
-        if (this.description == null) {
-            this.description = this.descriptionLocalized();
-        }
+        this.description = this.descriptionLocalized();
     }
     
     public String descriptionLocalized() {

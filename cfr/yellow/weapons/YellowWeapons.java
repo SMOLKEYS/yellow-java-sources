@@ -278,12 +278,14 @@ public class YellowWeapons {
                 this.mirror = false;
                 this.y = 0.0f;
                 this.x = 0.0f;
+                this.shootSound = Sounds.pulse;
                 this.bullet = new ContinuousFlameBulletType(){
                     {
                         this.recoil = -0.32f;
                         this.damage = 60.0f;
                         this.knockback = 50.0f;
-                        this.colors = new Color[]{Color.orange, Color.cyan, Color.purple};
+                        this.flareColor = Color.yellow;
+                        this.colors = new Color[]{Color.yellow, Color.orange};
                     }
                 };
             }

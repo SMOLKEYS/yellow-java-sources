@@ -6,8 +6,11 @@ package yellow.entities.units;
 
 import yellow.internal.util.YellowUtilsKt;
 import yellow.type.DisableableWeapon;
-import mindustry.type.Weapon;
 import arc.scene.ui.layout.Table;
+import yellow.ui.buttons.dialogs.WeaponInfoDialog;
+import yellow.type.NameableWeapon;
+import yellow.Yellow;
+import mindustry.type.Weapon;
 import yellow.entities.units.entity.YellowUnitEntity;
 import mindustry.world.meta.StatUnit;
 import yellow.world.meta.YellowStats;
@@ -95,7 +98,10 @@ public class YellowUnitType extends UnitType
         return (Unit)new YellowUnitEntity();
     }
     
-    private static final void setStats$lambda$3$lambda$2$lambda$1() {
+    private static final void setStats$lambda$3$lambda$2$lambda$1(final Weapon $it) {
+        final WeaponInfoDialog weaponInfo = Yellow.weaponInfo;
+        Intrinsics.checkNotNullExpressionValue($it, "it");
+        weaponInfo.show((NameableWeapon)$it);
     }
     
     private static final void setStats$lambda$3$lambda$2(final Table $me, final Weapon it) {
