@@ -273,7 +273,8 @@ public class YellowWeapons
                 this.bullet = (BulletType)new ContinuousFlameBulletType() {
                     {
                         this.recoil = -0.32f;
-                        this.damage = 0.0f;
+                        this.damage = 60.0f;
+                        this.knockback = 50.0f;
                         this.colors = new Color[] { Color.orange, Color.cyan, Color.purple };
                     }
                 };
