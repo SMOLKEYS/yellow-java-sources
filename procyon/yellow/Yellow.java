@@ -44,6 +44,7 @@ public class Yellow extends Mod
         Log.info((Object)yellow);
         Events.run((Object)EventType.ClientLoadEvent.class, () -> {
             Yellow.weaponSwitch.build((Group)Vars.ui.hudGroup);
+            Yellow.weaponInfo = new WeaponInfoDialog();
             Yellow.food = new FoodDialog();
             YellowUtils.mobileHudButton((Drawable)Icon.add, () -> Yellow.food.show(Vars.player.team()));
             YellowVars.load();
@@ -74,6 +75,5 @@ public class Yellow extends Mod
     
     static {
         Yellow.weaponSwitch = new YellowWeaponSwitch();
-        Yellow.weaponInfo = new WeaponInfoDialog();
     }
 }

@@ -46,7 +46,7 @@ import yellow.weapons.YellowWeapons;
 public class Yellow
 extends Mod {
     public static YellowWeaponSwitch weaponSwitch = new YellowWeaponSwitch();
-    public static WeaponInfoDialog weaponInfo = new WeaponInfoDialog();
+    public static WeaponInfoDialog weaponInfo;
     public static FoodDialog food;
 
     public Yellow() {
@@ -57,6 +57,7 @@ extends Mod {
         Log.info((Object)yellow);
         Events.run(EventType.ClientLoadEvent.class, () -> {
             weaponSwitch.build((Group)Vars.ui.hudGroup);
+            weaponInfo = new WeaponInfoDialog();
             food = new FoodDialog();
             YellowUtils.mobileHudButton((Drawable)Icon.add, () -> food.show(Vars.player.team()));
             YellowVars.load();
