@@ -50,7 +50,7 @@ extends BaseDialog {
         info.margin(10.0f);
         info.table(arg_0 -> WeaponInfoDialog.show$lambda$0(weapon, arg_0)).row();
         info.add((CharSequence)"Description").color(Pal.accent).fillX().padTop(10.0f).row();
-        ((Label)info.add((CharSequence)weapon.description).color(Color.lightGray).get()).setWrap(true);
+        ((Label)info.add((CharSequence)weapon.description).color(Color.lightGray).fillX().get()).setWrap(true);
         info.row();
         info.add((CharSequence)"General Stats").color(Pal.accent).fillX().padTop(3.0f).row();
         StringBuilder stringBuilder2 = stringBuilder = new StringBuilder();

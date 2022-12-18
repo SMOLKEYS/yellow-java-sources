@@ -63,139 +63,140 @@ public class WeaponInfoDialog extends BaseDialog
         //    75: invokevirtual   arc/scene/ui/layout/Table.add:(Ljava/lang/CharSequence;)Larc/scene/ui/layout/Cell;
         //    78: getstatic       arc/graphics/Color.lightGray:Larc/graphics/Color;
         //    81: invokevirtual   arc/scene/ui/layout/Cell.color:(Larc/graphics/Color;)Larc/scene/ui/layout/Cell;
-        //    84: invokevirtual   arc/scene/ui/layout/Cell.get:()Larc/scene/Element;
-        //    87: checkcast       Larc/scene/ui/Label;
-        //    90: iconst_1       
-        //    91: invokevirtual   arc/scene/ui/Label.setWrap:(Z)V
-        //    94: aload_2         /* info */
-        //    95: invokevirtual   arc/scene/ui/layout/Table.row:()Larc/scene/ui/layout/Table;
-        //    98: pop            
-        //    99: aload_2         /* info */
-        //   100: ldc             "General Stats"
-        //   102: checkcast       Ljava/lang/CharSequence;
-        //   105: invokevirtual   arc/scene/ui/layout/Table.add:(Ljava/lang/CharSequence;)Larc/scene/ui/layout/Cell;
-        //   108: getstatic       mindustry/graphics/Pal.accent:Larc/graphics/Color;
-        //   111: invokevirtual   arc/scene/ui/layout/Cell.color:(Larc/graphics/Color;)Larc/scene/ui/layout/Cell;
-        //   114: invokevirtual   arc/scene/ui/layout/Cell.fillX:()Larc/scene/ui/layout/Cell;
-        //   117: ldc             3.0
-        //   119: invokevirtual   arc/scene/ui/layout/Cell.padTop:(F)Larc/scene/ui/layout/Cell;
-        //   122: invokevirtual   arc/scene/ui/layout/Cell.row:()V
-        //   125: aload_2         /* info */
-        //   126: new             Ljava/lang/StringBuilder;
-        //   129: dup            
-        //   130: invokespecial   java/lang/StringBuilder.<init>:()V
-        //   133: astore_3       
-        //   134: aload_3        
-        //   135: astore          4
-        //   137: astore          6
-        //   139: iconst_0       
-        //   140: istore          $i$a$-buildString-WeaponInfoDialog$show$2
-        //   142: aload           $this$show_u24lambda_u241
-        //   144: new             Ljava/lang/StringBuilder;
-        //   147: dup            
-        //   148: invokespecial   java/lang/StringBuilder.<init>:()V
-        //   151: ldc             "[lightgray]Reload:[] "
-        //   153: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   156: aload_1         /* weapon */
-        //   157: getfield        yellow/type/NameableWeapon.reload:F
-        //   160: ldc             60.0
-        //   162: fdiv           
-        //   163: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
-        //   166: ldc             " seconds\n"
-        //   168: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   171: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
-        //   174: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   177: pop            
-        //   178: aload           $this$show_u24lambda_u241
-        //   180: new             Ljava/lang/StringBuilder;
-        //   183: dup            
-        //   184: invokespecial   java/lang/StringBuilder.<init>:()V
-        //   187: ldc             "[lightgray]X, Y:[] "
-        //   189: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   192: aload_1         /* weapon */
-        //   193: getfield        yellow/type/NameableWeapon.x:F
-        //   196: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
-        //   199: ldc             ", "
-        //   201: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   204: aload_1         /* weapon */
-        //   205: getfield        yellow/type/NameableWeapon.y:F
-        //   208: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
-        //   211: bipush          10
-        //   213: invokevirtual   java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
-        //   216: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
-        //   219: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   222: pop            
-        //   223: aload           $this$show_u24lambda_u241
-        //   225: new             Ljava/lang/StringBuilder;
-        //   228: dup            
-        //   229: invokespecial   java/lang/StringBuilder.<init>:()V
-        //   232: ldc             "[lightgray]Rotate:[] "
-        //   234: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   237: aload_1         /* weapon */
-        //   238: getfield        yellow/type/NameableWeapon.rotate:Z
-        //   241: invokestatic    yellow/internal/util/YellowUtilsKtKt.yesNo:(Z)Ljava/lang/String;
-        //   244: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   247: bipush          10
-        //   249: invokevirtual   java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
-        //   252: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
-        //   255: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   258: pop            
-        //   259: aload           $this$show_u24lambda_u241
-        //   261: new             Ljava/lang/StringBuilder;
-        //   264: dup            
-        //   265: invokespecial   java/lang/StringBuilder.<init>:()V
-        //   268: ldc             "[lightgray]Shoot Cone:[] "
-        //   270: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   273: aload_1         /* weapon */
-        //   274: getfield        yellow/type/NameableWeapon.shootCone:F
-        //   277: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
-        //   280: ldc             " degrees\n"
-        //   282: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   285: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
-        //   288: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   291: pop            
-        //   292: aload           $this$show_u24lambda_u241
-        //   294: new             Ljava/lang/StringBuilder;
-        //   297: dup            
-        //   298: invokespecial   java/lang/StringBuilder.<init>:()V
-        //   301: ldc             "[lightgray]Rotate Speed:[] "
-        //   303: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   306: aload_1         /* weapon */
-        //   307: getfield        yellow/type/NameableWeapon.rotateSpeed:F
-        //   310: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
-        //   313: ldc             " degrees\n"
-        //   315: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   318: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
-        //   321: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
-        //   324: pop            
-        //   325: nop            
-        //   326: aload           6
-        //   328: aload_3        
-        //   329: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
-        //   332: dup            
-        //   333: ldc             "StringBuilder().apply(builderAction).toString()"
-        //   335: invokestatic    kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
-        //   338: checkcast       Ljava/lang/CharSequence;
-        //   341: invokevirtual   arc/scene/ui/layout/Table.add:(Ljava/lang/CharSequence;)Larc/scene/ui/layout/Cell;
-        //   344: pop            
-        //   345: new             Larc/scene/ui/ScrollPane;
-        //   348: dup            
-        //   349: aload_2         /* info */
-        //   350: checkcast       Larc/scene/Element;
-        //   353: invokespecial   arc/scene/ui/ScrollPane.<init>:(Larc/scene/Element;)V
-        //   356: astore_3        /* paenu */
-        //   357: aload_0         /* this */
-        //   358: getfield        mindustry/ui/dialogs/BaseDialog.cont:Larc/scene/ui/layout/Table;
-        //   361: aload_3         /* paenu */
-        //   362: checkcast       Larc/scene/Element;
-        //   365: invokevirtual   arc/scene/ui/layout/Table.add:(Larc/scene/Element;)Larc/scene/ui/layout/Cell;
-        //   368: pop            
-        //   369: aload_0         /* this */
-        //   370: invokespecial   mindustry/ui/dialogs/BaseDialog.show:()Larc/scene/ui/Dialog;
-        //   373: dup            
-        //   374: ldc             "super.show()"
-        //   376: invokestatic    kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
-        //   379: areturn        
+        //    84: invokevirtual   arc/scene/ui/layout/Cell.fillX:()Larc/scene/ui/layout/Cell;
+        //    87: invokevirtual   arc/scene/ui/layout/Cell.get:()Larc/scene/Element;
+        //    90: checkcast       Larc/scene/ui/Label;
+        //    93: iconst_1       
+        //    94: invokevirtual   arc/scene/ui/Label.setWrap:(Z)V
+        //    97: aload_2         /* info */
+        //    98: invokevirtual   arc/scene/ui/layout/Table.row:()Larc/scene/ui/layout/Table;
+        //   101: pop            
+        //   102: aload_2         /* info */
+        //   103: ldc             "General Stats"
+        //   105: checkcast       Ljava/lang/CharSequence;
+        //   108: invokevirtual   arc/scene/ui/layout/Table.add:(Ljava/lang/CharSequence;)Larc/scene/ui/layout/Cell;
+        //   111: getstatic       mindustry/graphics/Pal.accent:Larc/graphics/Color;
+        //   114: invokevirtual   arc/scene/ui/layout/Cell.color:(Larc/graphics/Color;)Larc/scene/ui/layout/Cell;
+        //   117: invokevirtual   arc/scene/ui/layout/Cell.fillX:()Larc/scene/ui/layout/Cell;
+        //   120: ldc             3.0
+        //   122: invokevirtual   arc/scene/ui/layout/Cell.padTop:(F)Larc/scene/ui/layout/Cell;
+        //   125: invokevirtual   arc/scene/ui/layout/Cell.row:()V
+        //   128: aload_2         /* info */
+        //   129: new             Ljava/lang/StringBuilder;
+        //   132: dup            
+        //   133: invokespecial   java/lang/StringBuilder.<init>:()V
+        //   136: astore_3       
+        //   137: aload_3        
+        //   138: astore          4
+        //   140: astore          6
+        //   142: iconst_0       
+        //   143: istore          $i$a$-buildString-WeaponInfoDialog$show$2
+        //   145: aload           $this$show_u24lambda_u241
+        //   147: new             Ljava/lang/StringBuilder;
+        //   150: dup            
+        //   151: invokespecial   java/lang/StringBuilder.<init>:()V
+        //   154: ldc             "[lightgray]Reload:[] "
+        //   156: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   159: aload_1         /* weapon */
+        //   160: getfield        yellow/type/NameableWeapon.reload:F
+        //   163: ldc             60.0
+        //   165: fdiv           
+        //   166: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
+        //   169: ldc             " seconds\n"
+        //   171: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   174: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
+        //   177: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   180: pop            
+        //   181: aload           $this$show_u24lambda_u241
+        //   183: new             Ljava/lang/StringBuilder;
+        //   186: dup            
+        //   187: invokespecial   java/lang/StringBuilder.<init>:()V
+        //   190: ldc             "[lightgray]X, Y:[] "
+        //   192: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   195: aload_1         /* weapon */
+        //   196: getfield        yellow/type/NameableWeapon.x:F
+        //   199: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
+        //   202: ldc             ", "
+        //   204: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   207: aload_1         /* weapon */
+        //   208: getfield        yellow/type/NameableWeapon.y:F
+        //   211: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
+        //   214: bipush          10
+        //   216: invokevirtual   java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+        //   219: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
+        //   222: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   225: pop            
+        //   226: aload           $this$show_u24lambda_u241
+        //   228: new             Ljava/lang/StringBuilder;
+        //   231: dup            
+        //   232: invokespecial   java/lang/StringBuilder.<init>:()V
+        //   235: ldc             "[lightgray]Rotate:[] "
+        //   237: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   240: aload_1         /* weapon */
+        //   241: getfield        yellow/type/NameableWeapon.rotate:Z
+        //   244: invokestatic    yellow/internal/util/YellowUtilsKtKt.yesNo:(Z)Ljava/lang/String;
+        //   247: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   250: bipush          10
+        //   252: invokevirtual   java/lang/StringBuilder.append:(C)Ljava/lang/StringBuilder;
+        //   255: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
+        //   258: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   261: pop            
+        //   262: aload           $this$show_u24lambda_u241
+        //   264: new             Ljava/lang/StringBuilder;
+        //   267: dup            
+        //   268: invokespecial   java/lang/StringBuilder.<init>:()V
+        //   271: ldc             "[lightgray]Shoot Cone:[] "
+        //   273: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   276: aload_1         /* weapon */
+        //   277: getfield        yellow/type/NameableWeapon.shootCone:F
+        //   280: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
+        //   283: ldc             " degrees\n"
+        //   285: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   288: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
+        //   291: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   294: pop            
+        //   295: aload           $this$show_u24lambda_u241
+        //   297: new             Ljava/lang/StringBuilder;
+        //   300: dup            
+        //   301: invokespecial   java/lang/StringBuilder.<init>:()V
+        //   304: ldc             "[lightgray]Rotate Speed:[] "
+        //   306: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   309: aload_1         /* weapon */
+        //   310: getfield        yellow/type/NameableWeapon.rotateSpeed:F
+        //   313: invokevirtual   java/lang/StringBuilder.append:(F)Ljava/lang/StringBuilder;
+        //   316: ldc             " degrees\n"
+        //   318: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   321: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
+        //   324: invokevirtual   java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        //   327: pop            
+        //   328: nop            
+        //   329: aload           6
+        //   331: aload_3        
+        //   332: invokevirtual   java/lang/StringBuilder.toString:()Ljava/lang/String;
+        //   335: dup            
+        //   336: ldc             "StringBuilder().apply(builderAction).toString()"
+        //   338: invokestatic    kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
+        //   341: checkcast       Ljava/lang/CharSequence;
+        //   344: invokevirtual   arc/scene/ui/layout/Table.add:(Ljava/lang/CharSequence;)Larc/scene/ui/layout/Cell;
+        //   347: pop            
+        //   348: new             Larc/scene/ui/ScrollPane;
+        //   351: dup            
+        //   352: aload_2         /* info */
+        //   353: checkcast       Larc/scene/Element;
+        //   356: invokespecial   arc/scene/ui/ScrollPane.<init>:(Larc/scene/Element;)V
+        //   359: astore_3        /* paenu */
+        //   360: aload_0         /* this */
+        //   361: getfield        mindustry/ui/dialogs/BaseDialog.cont:Larc/scene/ui/layout/Table;
+        //   364: aload_3         /* paenu */
+        //   365: checkcast       Larc/scene/Element;
+        //   368: invokevirtual   arc/scene/ui/layout/Table.add:(Larc/scene/Element;)Larc/scene/ui/layout/Cell;
+        //   371: pop            
+        //   372: aload_0         /* this */
+        //   373: invokespecial   mindustry/ui/dialogs/BaseDialog.show:()Larc/scene/ui/Dialog;
+        //   376: dup            
+        //   377: ldc             "super.show()"
+        //   379: invokestatic    kotlin/jvm/internal/Intrinsics.checkNotNullExpressionValue:(Ljava/lang/Object;Ljava/lang/String;)V
+        //   382: areturn        
         // 
         // The error that occurred was:
         // 
