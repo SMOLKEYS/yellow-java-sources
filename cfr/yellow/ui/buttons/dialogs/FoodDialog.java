@@ -2,10 +2,7 @@
  * Decompiled with CFR 0.152.
  * 
  * Could not load the following classes:
- *  arc.scene.Element
- *  arc.scene.style.Drawable
  *  arc.scene.ui.Dialog
- *  arc.scene.ui.layout.Cell
  *  arc.scene.ui.layout.Table
  *  mindustry.game.Team
  *  mindustry.gen.Tex
@@ -14,10 +11,7 @@
  */
 package yellow.ui.buttons.dialogs;
 
-import arc.scene.Element;
-import arc.scene.style.Drawable;
 import arc.scene.ui.Dialog;
-import arc.scene.ui.layout.Cell;
 import arc.scene.ui.layout.Table;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
@@ -48,60 +42,24 @@ extends BaseDialog {
 
     @NotNull
     public final Dialog show(@NotNull Team team) {
-        Table it$iv;
-        Table $this$addTable$iv;
-        Table table;
         Intrinsics.checkNotNullParameter(team, "team");
         this.cont.clear();
-        Table table2 = this.cont;
-        Intrinsics.checkNotNullExpressionValue(table2, "cont");
-        Table table3 = table2;
-        Drawable drawable = Tex.pane;
-        Intrinsics.checkNotNullExpressionValue(drawable, "pane");
-        Drawable background$iv = drawable;
-        boolean $i$f$addTable = false;
-        Table table4 = table = new Table(background$iv);
-        Table table5 = $this$addTable$iv;
-        boolean bl = false;
-        void $this$show_u24lambda_u240 = it$iv;
-        boolean bl2 = false;
-        Cell cell = table5.add((Element)table);
-        Intrinsics.checkNotNullExpressionValue(cell, "add(Table(background).al\u2026 {\n\t\tit.constructor()\n\t})");
-        cell.grow();
-        Table table6 = this.cont;
-        Intrinsics.checkNotNullExpressionValue(table6, "cont");
-        $this$addTable$iv = table6;
-        Drawable drawable2 = Tex.pane;
-        Intrinsics.checkNotNullExpressionValue(drawable2, "pane");
-        background$iv = drawable2;
-        $i$f$addTable = false;
-        it$iv = table = new Table(background$iv);
-        table5 = $this$addTable$iv;
-        bl = false;
-        Table $this$show_u24lambda_u241 = it$iv;
-        boolean bl3 = false;
-        Cell cell2 = table5.add((Element)table);
-        Intrinsics.checkNotNullExpressionValue(cell2, "add(Table(background).al\u2026 {\n\t\tit.constructor()\n\t})");
-        cell2.grow();
+        this.cont.table(Tex.pane, FoodDialog::show$lambda$0).grow();
+        this.cont.table(Tex.pane, FoodDialog::show$lambda$1).grow();
         this.cont.row();
-        Table table7 = this.cont;
-        Intrinsics.checkNotNullExpressionValue(table7, "cont");
-        $this$addTable$iv = table7;
-        Drawable drawable3 = Tex.pane;
-        Intrinsics.checkNotNullExpressionValue(drawable3, "pane");
-        background$iv = drawable3;
-        $i$f$addTable = false;
-        it$iv = table = new Table(background$iv);
-        table5 = $this$addTable$iv;
-        bl = false;
-        Table $this$show_u24lambda_u242 = it$iv;
-        boolean bl4 = false;
-        Cell cell3 = table5.add((Element)table);
-        Intrinsics.checkNotNullExpressionValue(cell3, "add(Table(background).al\u2026 {\n\t\tit.constructor()\n\t})");
-        cell3.grow();
+        this.cont.table(Tex.pane, FoodDialog::show$lambda$2).grow();
         Dialog dialog = super.show();
         Intrinsics.checkNotNullExpressionValue(dialog, "super.show()");
         return dialog;
+    }
+
+    private static final void show$lambda$0(Table it) {
+    }
+
+    private static final void show$lambda$1(Table it) {
+    }
+
+    private static final void show$lambda$2(Table it) {
     }
 }
 
