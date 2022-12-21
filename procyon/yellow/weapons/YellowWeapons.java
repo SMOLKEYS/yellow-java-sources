@@ -39,6 +39,7 @@ public class YellowWeapons
     public static Weapon ghostCall;
     public static Weapon ghostRain;
     public static Weapon speedEngine;
+    public static Weapon dualSpeedEngine;
     
     public static void load() {
         YellowWeapons.meltdownBurstAttack = new DisableableWeapon() {
@@ -276,6 +277,30 @@ public class YellowWeapons
                         this.recoil = -0.32f;
                         this.damage = 60.0f;
                         this.knockback = 50.0f;
+                        this.flareColor = Color.yellow;
+                        this.colors = new Color[] { Color.yellow, Color.orange };
+                    }
+                };
+            }
+        };
+        YellowWeapons.dualSpeedEngine = new DistanceBasedWeapon() {
+            {
+                this.enabledDefault = false;
+                this.rotate = false;
+                this.holdTime = 120.0f;
+                this.baseRotation = 215.0f;
+                this.shootCone = 360.0f;
+                this.mirror = false;
+                final float n = 0.0f;
+                this.y = n;
+                this.x = n;
+                this.shootSound = Sounds.none;
+                this.bullet = (BulletType)new ContinuousFlameBulletType() {
+                    {
+                        this.recoil = -0.32f;
+                        this.damage = 60.0f;
+                        this.knockback = 50.0f;
+                        this.length = 45.0f;
                         this.flareColor = Color.yellow;
                         this.colors = new Color[] { Color.yellow, Color.orange };
                     }

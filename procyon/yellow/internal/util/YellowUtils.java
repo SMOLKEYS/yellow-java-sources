@@ -57,6 +57,7 @@ public class YellowUtils
         for (final Weapon weapon : in) {
             final Weapon mog = weapon.copy();
             mog.x = weapon.x - weapon.x * 2.0f;
+            mog.baseRotation = weapon.baseRotation * -1.0f;
             if (alternate) {
                 mog.reload = weapon.reload * 2.0f;
             }
