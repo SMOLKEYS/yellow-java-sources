@@ -25,16 +25,9 @@ extends WeaponMount {
     }
 
     public void write(Writes write) {
-        write.bool(this.enabled);
     }
 
     public void read(Reads read) {
-        try {
-            this.enabled = read.bool();
-        }
-        catch (Exception e) {
-            this.enabled = ((DisableableWeapon)this.weapon).enabledDefault;
-        }
     }
 
     public void enabled() {

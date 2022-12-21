@@ -9,32 +9,32 @@ import mindustry.Vars;
 import kotlin.jvm.internal.Intrinsics;
 import arc.files.Fi;
 import java.util.List;
-import org.jetbrains.annotations.NotNull;
+import kotlin.jvm.JvmStatic;
 import arc.struct.Seq;
+import org.jetbrains.annotations.NotNull;
 import kotlin.Metadata;
 
-@Metadata(mv = { 1, 7, 1 }, k = 1, xi = 48, d1 = { "\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0016\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u0006\u0010\n\u001a\u00020\u000bJ\u0016\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u00050\r*\b\u0012\u0004\u0012\u00020\u00050\rJ\u0010\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\u00050\r*\u00020\u000fR\u0017\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u0017\u0010\b\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\u0007¨\u0006\u0010" }, d2 = { "Lyellow/internal/MetaChaos;", "", "()V", "descriptions", "Larc/struct/Seq;", "", "getDescriptions", "()Larc/struct/Seq;", "subtitles", "getSubtitles", "load", "", "filterComments", "", "readLines", "Larc/files/Fi;", "yellow-java" })
-public class MetaChaos
+@Metadata(mv = { 1, 7, 1 }, k = 1, xi = 48, d1 = { "\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0000\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\f\u001a\u00020\rH\u0007J\u0016\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\u00050\u000f*\b\u0012\u0004\u0012\u00020\u00050\u000fJ\u0010\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00050\u000f*\u00020\u0011R\"\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048\u0006X\u0087\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\u0006\u0010\u0002\u001a\u0004\b\u0007\u0010\bR\"\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048\u0006X\u0087\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\n\u0010\u0002\u001a\u0004\b\u000b\u0010\b¨\u0006\u0012" }, d2 = { "Lyellow/internal/MetaChaos;", "", "()V", "descriptions", "Larc/struct/Seq;", "", "getDescriptions$annotations", "getDescriptions", "()Larc/struct/Seq;", "subtitles", "getSubtitles$annotations", "getSubtitles", "load", "", "filterComments", "", "readLines", "Larc/files/Fi;", "yellow-java" })
+public final class MetaChaos
 {
     @NotNull
-    private final Seq<String> subtitles;
+    public static final MetaChaos INSTANCE;
     @NotNull
-    private final Seq<String> descriptions;
+    private static final Seq<String> subtitles;
+    @NotNull
+    private static final Seq<String> descriptions;
     
-    public MetaChaos() {
-        this.subtitles = (Seq<String>)new Seq();
-        this.descriptions = (Seq<String>)new Seq();
-        this.load();
+    private MetaChaos() {
     }
     
     @NotNull
-    public final Seq<String> getSubtitles() {
-        return this.subtitles;
+    public static final Seq<String> getSubtitles() {
+        return MetaChaos.subtitles;
     }
     
     @NotNull
-    public final Seq<String> getDescriptions() {
-        return this.descriptions;
+    public static final Seq<String> getDescriptions() {
+        return MetaChaos.descriptions;
     }
     
     @NotNull
@@ -96,7 +96,7 @@ public class MetaChaos
         //   109: areturn        
         //    Signature:
         //  (Ljava/util/List<Ljava/lang/String;>;)Ljava/util/List<Ljava/lang/String;>;
-        //    StackMapTable: 00 04 FF 00 28 00 08 07 00 02 07 00 4C 07 00 29 01 07 00 29 07 00 2E 01 07 00 34 00 00 FE 00 2D 07 00 04 07 00 3E 01 40 01 F8 00 0F
+        //    StackMapTable: 00 04 FF 00 28 00 08 07 00 02 07 00 49 07 00 26 01 07 00 26 07 00 2B 01 07 00 31 00 00 FE 00 2D 07 00 04 07 00 3B 01 40 01 F8 00 0F
         // 
         // The error that occurred was:
         // 
@@ -113,17 +113,30 @@ public class MetaChaos
         return this.filterComments(StringsKt__StringsKt.split$default(string, new char[] { '\n' }, false, 0, 6, null));
     }
     
-    public final void load() {
+    @JvmStatic
+    public static final void load() {
         final Mods$ModMeta meta = Vars.mods.getMod("yellow-java").meta;
-        this.subtitles.add((Object)meta.subtitle);
-        this.descriptions.add((Object)meta.description);
+        final MetaChaos instance = MetaChaos.INSTANCE;
+        MetaChaos.subtitles.add((Object)meta.subtitle);
+        final MetaChaos instance2 = MetaChaos.INSTANCE;
+        MetaChaos.descriptions.add((Object)meta.description);
+        final MetaChaos instance3 = MetaChaos.INSTANCE;
         final Fi value = Vars.tree.get("metachaos/subtitles.txt");
         Intrinsics.checkNotNullExpressionValue(value, "Vars.tree[\"metachaos/subtitles.txt\"]");
-        final List sub = this.readLines(value);
-        this.subtitles.addAll((Iterable)sub);
+        final List sub = instance3.readLines(value);
+        final MetaChaos instance4 = MetaChaos.INSTANCE;
+        MetaChaos.subtitles.addAll((Iterable)sub);
+        final MetaChaos instance5 = MetaChaos.INSTANCE;
         final Fi value2 = Vars.tree.get("metachaos/descriptions.txt");
         Intrinsics.checkNotNullExpressionValue(value2, "Vars.tree[\"metachaos/descriptions.txt\"]");
-        final List desc = this.readLines(value2);
-        this.descriptions.addAll((Iterable)desc);
+        final List desc = instance5.readLines(value2);
+        final MetaChaos instance6 = MetaChaos.INSTANCE;
+        MetaChaos.descriptions.addAll((Iterable)desc);
+    }
+    
+    static {
+        INSTANCE = new MetaChaos();
+        subtitles = new Seq();
+        descriptions = new Seq();
     }
 }

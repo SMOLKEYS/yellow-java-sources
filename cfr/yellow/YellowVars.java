@@ -4,14 +4,12 @@
  * Could not load the following classes:
  *  arc.ApplicationListener
  *  arc.Core
- *  mindustry.Vars
  *  mindustry.mod.Mods$ModMeta
  */
 package yellow;
 
 import arc.ApplicationListener;
 import arc.Core;
-import mindustry.Vars;
 import mindustry.mod.Mods;
 import yellow.Yellow;
 import yellow.YellowPermVars;
@@ -22,13 +20,13 @@ public class YellowVars {
     public static Mods.ModMeta meta;
 
     public static void load() {
-        meta = Vars.mods.getMod((String)"yellow-java").meta;
-        MetaChaos locs = new MetaChaos();
-        YellowVars.meta.subtitle = (String)locs.getSubtitles().random();
-        YellowVars.meta.description = (String)locs.getDescriptions().random();
+        meta = Yellow.getSelf().meta;
+        MetaChaos.load();
+        YellowVars.meta.subtitle = (String)MetaChaos.getSubtitles().random();
+        YellowVars.meta.description = (String)MetaChaos.getDescriptions().random();
         YellowUtils.loop(1.0f, () -> {
-            YellowVars.meta.subtitle = (String)locs.getSubtitles().random();
-            YellowVars.meta.description = (String)locs.getDescriptions().random();
+            YellowVars.meta.subtitle = (String)MetaChaos.getSubtitles().random();
+            YellowVars.meta.description = (String)MetaChaos.getDescriptions().random();
         });
         if (YellowPermVars.INSTANCE.getTemporary()) {
             Core.app.addListener(new ApplicationListener(){

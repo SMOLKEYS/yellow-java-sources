@@ -20,6 +20,7 @@ import arc.util.Tmp;
 import arc.util.noise.Simplex;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.ranges.RangesKt;
 import mindustry.content.Blocks;
 import mindustry.maps.generators.PlanetGenerator;
 import mindustry.world.Block;
@@ -85,7 +86,7 @@ extends PlanetGenerator {
 
     public float getHeight(@NotNull Vec3 position) {
         Intrinsics.checkNotNullParameter(position, "position");
-        return Math.max(this.rawHeight(position), this.watera);
+        return RangesKt.coerceAtLeast(this.rawHeight(position), this.watera);
     }
 
     @NotNull

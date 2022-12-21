@@ -21,16 +21,9 @@ public class DisableableWeaponMount extends WeaponMount
     }
     
     public void write(final Writes write) {
-        write.bool(this.enabled);
     }
     
     public void read(final Reads read) {
-        try {
-            this.enabled = read.bool();
-        }
-        catch (final Exception e) {
-            this.enabled = ((DisableableWeapon)this.weapon).enabledDefault;
-        }
     }
     
     public void enabled() {

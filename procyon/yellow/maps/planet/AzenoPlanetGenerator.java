@@ -78,7 +78,7 @@ public class AzenoPlanetGenerator extends PlanetGenerator
     
     public float getHeight(@NotNull final Vec3 position) {
         Intrinsics.checkNotNullParameter(position, "position");
-        return Math.max(this.rawHeight(position), this.watera);
+        return RangesKt___RangesKt.coerceAtLeast(this.rawHeight(position), this.watera);
     }
     
     @NotNull
