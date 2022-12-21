@@ -83,7 +83,7 @@ extends Mod {
         YellowBlocks.load();
         YellowItems.load();
         YellowWeapons.afterLoad();
-        YellowUtils.mirror(new Weapon[]{YellowWeapons.meltdownBurstAttack, YellowWeapons.antiMothSpray, YellowWeapons.decimation, YellowWeapons.airstrikeFlareLauncher, YellowWeapons.ghostCall, YellowWeapons.ghostRain}, true, true, true, YellowUnitTypes.yellow);
+        YellowUtils.mirror(new Weapon[]{YellowWeapons.meltdownBurstAttack, YellowWeapons.antiMothSpray, YellowWeapons.decimation, YellowWeapons.airstrikeFlareLauncher, YellowWeapons.ghostCall, YellowWeapons.ghostRain, YellowWeapons.dualSpeedEngine}, true, true, true, YellowUnitTypes.yellow);
     }
 }
 

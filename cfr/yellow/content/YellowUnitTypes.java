@@ -46,7 +46,7 @@ public class YellowUnitTypes {
                 this.createWreck = false;
                 this.aiController = FlyingAI::new;
                 this.region = Core.atlas.find("yellow");
-                this.weapons.addAll((Object[])new Weapon[]{YellowWeapons.meltdownBurstAttack, YellowWeapons.bullethell, YellowWeapons.airstrikeFlareLauncher, YellowWeapons.antiMothSpray, YellowWeapons.decimation, YellowWeapons.disruptor, YellowWeapons.ghostCall, YellowWeapons.ghostRain, YellowWeapons.speedEngine});
+                this.weapons.addAll((Object[])new Weapon[]{YellowWeapons.meltdownBurstAttack, YellowWeapons.bullethell, YellowWeapons.airstrikeFlareLauncher, YellowWeapons.antiMothSpray, YellowWeapons.decimation, YellowWeapons.disruptor, YellowWeapons.ghostCall, YellowWeapons.ghostRain, YellowWeapons.speedEngine, YellowWeapons.dualSpeedEngine});
             }
         };
         ghostFlare = new GhostUnitType("ghost-flare"){
