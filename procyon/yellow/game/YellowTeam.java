@@ -16,6 +16,10 @@ public class YellowTeam extends Team
     }
     
     public static void load() {
-        YellowTeam.azmar = new YellowTeam(1000, "azmar", Color.yellow);
+        YellowTeam.azmar = new YellowTeam(7, "azmar", Color.yellow);
+    }
+    
+    public boolean isEnemy(final Team other) {
+        return this != other && other != Team.sharded;
     }
 }

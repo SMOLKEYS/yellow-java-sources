@@ -19,7 +19,11 @@ extends Team {
     }
 
     public static void load() {
-        azmar = new YellowTeam(1000, "azmar", Color.yellow);
+        azmar = new YellowTeam(7, "azmar", Color.yellow);
+    }
+
+    public boolean isEnemy(Team other) {
+        return this != other && other != Team.sharded;
     }
 }
 
