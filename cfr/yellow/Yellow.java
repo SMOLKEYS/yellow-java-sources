@@ -34,6 +34,7 @@ import yellow.content.YellowPlanets;
 import yellow.content.YellowSpells;
 import yellow.content.YellowStatusEffects;
 import yellow.content.YellowUnitTypes;
+import yellow.game.YellowTeam;
 import yellow.internal.YellowAutoUpdater;
 import yellow.internal.YellowClassGateway;
 import yellow.internal.util.YellowUtils;
@@ -84,6 +85,7 @@ extends Mod {
         YellowBlocks.load();
         YellowItems.load();
         YellowSpells.load();
+        YellowTeam.load();
         YellowWeapons.afterLoad();
         YellowUtils.mirror(new Weapon[]{YellowWeapons.meltdownBurstAttack, YellowWeapons.antiMothSpray, YellowWeapons.decimation, YellowWeapons.airstrikeFlareLauncher, YellowWeapons.ghostCall, YellowWeapons.ghostRain, YellowWeapons.dualSpeedEngine}, true, true, true, YellowUnitTypes.yellow);
     }

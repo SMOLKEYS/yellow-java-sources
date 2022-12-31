@@ -9,13 +9,13 @@ import mindustry.game.Team;
 
 public class YellowTeam extends Team
 {
-    public static final YellowTeam azmar;
+    public static YellowTeam azmar;
     
     protected YellowTeam(final int id, final String name, final Color color) {
         super(id, name, color);
     }
     
-    static {
-        azmar = new YellowTeam(1000, "azmar", Color.yellow);
+    public static void load() {
+        YellowTeam.azmar = new YellowTeam(1000, "azmar", Color.yellow);
     }
 }
