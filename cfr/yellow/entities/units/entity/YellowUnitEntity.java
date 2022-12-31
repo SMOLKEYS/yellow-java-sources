@@ -285,7 +285,7 @@ implements Spellcaster {
 
     @NotNull
     public String toString() {
-        return this.isValid() ? "YellowUnitEntity#" + this.id : "(invalid) YellowUnitEntity#" + this.id;
+        return this.isValid() ? "YellowUnitEntity#" + this.id + ':' + this.type.name : "(invalid) YellowUnitEntity#" + this.id;
     }
 
     public void write(@NotNull Writes write) {

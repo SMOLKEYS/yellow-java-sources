@@ -252,7 +252,7 @@ public class YellowUnitEntity extends UnitEntity implements Spellcaster
     
     @NotNull
     public String toString() {
-        return this.isValid() ? ("YellowUnitEntity#" + super.id) : ("(invalid) YellowUnitEntity#" + super.id);
+        return this.isValid() ? ("YellowUnitEntity#" + super.id + ':' + super.type.name) : ("(invalid) YellowUnitEntity#" + super.id);
     }
     
     public void write(@NotNull final Writes write) {
