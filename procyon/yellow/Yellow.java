@@ -4,6 +4,7 @@
 
 package yellow;
 
+import arc.Core;
 import mindustry.type.Weapon;
 import yellow.game.YellowTeam;
 import yellow.content.YellowSpells;
@@ -64,17 +65,22 @@ public class Yellow extends Mod
     }
     
     public void loadContent() {
-        YellowBullets.load();
-        YellowWeapons.load();
-        YellowUnitTypes.load();
-        YellowStatusEffects.load();
-        YellowPlanets.load();
-        YellowBlocks.load();
-        YellowItems.load();
-        YellowSpells.load();
-        YellowTeam.load();
-        YellowWeapons.afterLoad();
-        YellowUtils.mirror(new Weapon[] { YellowWeapons.meltdownBurstAttack, YellowWeapons.antiMothSpray, YellowWeapons.decimation, YellowWeapons.airstrikeFlareLauncher, YellowWeapons.ghostCall, YellowWeapons.ghostRain, YellowWeapons.dualSpeedEngine }, true, true, true, YellowUnitTypes.yellow);
+        try {
+            YellowBullets.load();
+            YellowWeapons.load();
+            YellowUnitTypes.load();
+            YellowStatusEffects.load();
+            YellowPlanets.load();
+            YellowBlocks.load();
+            YellowItems.load();
+            YellowSpells.load();
+            YellowTeam.load();
+            YellowWeapons.afterLoad();
+            YellowUtils.mirror(new Weapon[] { YellowWeapons.meltdownBurstAttack, YellowWeapons.antiMothSpray, YellowWeapons.decimation, YellowWeapons.airstrikeFlareLauncher, YellowWeapons.ghostCall, YellowWeapons.ghostRain, YellowWeapons.dualSpeedEngine }, true, true, true, YellowUnitTypes.yellow);
+        }
+        catch (final Exception e) {
+            Events.run((Object)EventType.ClientLoadEvent.class, () -> Vars.ui.showCustomConfirm("[red]FATAL LOAD ERROR[]", "An error was thrown while content was being loaded from Yellow.\nClosing the game is heavily recommended.", "Close", "Keep Playing", () -> Core.app.exit(), () -> {}));
+        }
     }
     
     static {

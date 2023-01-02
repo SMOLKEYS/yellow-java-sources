@@ -36,7 +36,7 @@ extends Item {
     public boolean internalFood = false;
     public final OrderedMap<UnitType, String[]> responses = new OrderedMap();
     public Cons<Unit> consUnit = u -> {};
-    public Cons<FoodItem> consSelf = i -> {};
+    public Cons<FoodItem> consSelf = i2 -> {};
 
     public FoodItem(String name) {
         super(name);

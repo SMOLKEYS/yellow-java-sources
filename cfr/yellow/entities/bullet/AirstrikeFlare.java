@@ -146,13 +146,13 @@ extends ArtilleryBulletType {
         x.element = b.x;
         Ref.FloatRef y = new Ref.FloatRef();
         y.element = b.y;
-        int i = 0;
+        int i2 = 0;
         int n = this.misRng();
-        if (i <= n) {
+        if (i2 <= n) {
             while (true) {
                 Time.run((float)Mathf.random((float)this.minArrivalDelay, (float)this.arrivalDelay), () -> AirstrikeFlare.despawned$lambda$0(this, b, x, y));
-                if (i == n) break;
-                ++i;
+                if (i2 == n) break;
+                ++i2;
             }
         }
     }

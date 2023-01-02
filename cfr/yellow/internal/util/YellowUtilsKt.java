@@ -75,9 +75,9 @@ public final class YellowUtilsKt {
         String[] $this$forEach$iv = values2;
         boolean $i$f$forEach = false;
         int n = $this$forEach$iv.length;
-        for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
             String element$iv;
-            String it = element$iv = $this$forEach$iv[i];
+            String it = element$iv = $this$forEach$iv[j];
             boolean bl2 = false;
             String[] stringArray = new String[]{":"};
             List sua = StringsKt.split$default((CharSequence)String.valueOf(aus.get(it)), stringArray, false, 0, 6, null);

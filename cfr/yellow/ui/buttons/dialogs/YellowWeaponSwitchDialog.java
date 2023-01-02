@@ -31,9 +31,9 @@ extends BaseDialog {
         WeaponMount[] $this$forEach$iv = weapon;
         boolean $i$f$forEach = false;
         int n = $this$forEach$iv.length;
-        for (int i = 0; i < n; ++i) {
+        for (int j = 0; j < n; ++j) {
             WeaponMount element$iv;
-            WeaponMount it = element$iv = $this$forEach$iv[i];
+            WeaponMount it = element$iv = $this$forEach$iv[j];
             boolean bl = false;
             if (!(it instanceof DisableableWeaponMount)) {
                 return;

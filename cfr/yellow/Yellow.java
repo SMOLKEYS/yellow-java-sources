@@ -2,6 +2,7 @@
  * Decompiled with CFR 0.152.
  * 
  * Could not load the following classes:
+ *  arc.Core
  *  arc.Events
  *  arc.scene.Group
  *  arc.scene.style.Drawable
@@ -16,6 +17,7 @@
  */
 package yellow;
 
+import arc.Core;
 import arc.Events;
 import arc.scene.Group;
 import arc.scene.style.Drawable;
@@ -53,7 +55,7 @@ extends Mod {
 
     public Yellow() {
         String yellow = "yellow suse ballas ";
-        for (int i = 0; i < 5; ++i) {
+        for (int i2 = 0; i2 < 5; ++i2) {
             yellow = yellow + yellow;
         }
         Log.info((Object)yellow);
@@ -77,17 +79,22 @@ extends Mod {
     }
 
     public void loadContent() {
-        YellowBullets.load();
-        YellowWeapons.load();
-        YellowUnitTypes.load();
-        YellowStatusEffects.load();
-        YellowPlanets.load();
-        YellowBlocks.load();
-        YellowItems.load();
-        YellowSpells.load();
-        YellowTeam.load();
-        YellowWeapons.afterLoad();
-        YellowUtils.mirror(new Weapon[]{YellowWeapons.meltdownBurstAttack, YellowWeapons.antiMothSpray, YellowWeapons.decimation, YellowWeapons.airstrikeFlareLauncher, YellowWeapons.ghostCall, YellowWeapons.ghostRain, YellowWeapons.dualSpeedEngine}, true, true, true, YellowUnitTypes.yellow);
+        try {
+            YellowBullets.load();
+            YellowWeapons.load();
+            YellowUnitTypes.load();
+            YellowStatusEffects.load();
+            YellowPlanets.load();
+            YellowBlocks.load();
+            YellowItems.load();
+            YellowSpells.load();
+            YellowTeam.load();
+            YellowWeapons.afterLoad();
+            YellowUtils.mirror(new Weapon[]{YellowWeapons.meltdownBurstAttack, YellowWeapons.antiMothSpray, YellowWeapons.decimation, YellowWeapons.airstrikeFlareLauncher, YellowWeapons.ghostCall, YellowWeapons.ghostRain, YellowWeapons.dualSpeedEngine}, true, true, true, YellowUnitTypes.yellow);
+        }
+        catch (Exception e) {
+            Events.run(EventType.ClientLoadEvent.class, () -> Vars.ui.showCustomConfirm("[red]FATAL LOAD ERROR[]", "An error was thrown while content was being loaded from Yellow.\nClosing the game is heavily recommended.", "Close", "Keep Playing", () -> Core.app.exit(), () -> {}));
+        }
     }
 }
 
