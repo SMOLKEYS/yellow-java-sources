@@ -10,6 +10,7 @@ package yellow.ui.buttons.dialogs;
 
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.SourceDebugExtension;
 import mindustry.entities.units.WeaponMount;
 import mindustry.type.Weapon;
 import mindustry.ui.dialogs.BaseDialog;
@@ -17,7 +18,8 @@ import org.jetbrains.annotations.NotNull;
 import yellow.entities.units.DisableableWeaponMount;
 import yellow.type.NameableWeapon;
 
-@Metadata(mv={1, 7, 1}, k=1, xi=48, d1={"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0016\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0019\u0010\u0003\u001a\u00020\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006\u00a2\u0006\u0002\u0010\b\u00a8\u0006\t"}, d2={"Lyellow/ui/buttons/dialogs/YellowWeaponSwitchDialog;", "Lmindustry/ui/dialogs/BaseDialog;", "()V", "show", "", "weapon", "", "Lmindustry/entities/units/WeaponMount;", "([Lmindustry/entities/units/WeaponMount;)V", "yellow-java"})
+@Metadata(mv={1, 8, 0}, k=1, xi=48, d1={"\u0000\u001e\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0016\u0018\u00002\u00020\u0001B\u0005\u00a2\u0006\u0002\u0010\u0002J\u0019\u0010\u0003\u001a\u00020\u00042\f\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006\u00a2\u0006\u0002\u0010\b\u00a8\u0006\t"}, d2={"Lyellow/ui/buttons/dialogs/YellowWeaponSwitchDialog;", "Lmindustry/ui/dialogs/BaseDialog;", "()V", "show", "", "weapon", "", "Lmindustry/entities/units/WeaponMount;", "([Lmindustry/entities/units/WeaponMount;)V", "yellow-java"})
+@SourceDebugExtension(value={"SMAP\nYellowWeaponSwitchDialog.kt\nKotlin\n*S Kotlin\n*F\n+ 1 YellowWeaponSwitchDialog.kt\nyellow/ui/buttons/dialogs/YellowWeaponSwitchDialog\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,36:1\n13579#2,2:37\n*S KotlinDebug\n*F\n+ 1 YellowWeaponSwitchDialog.kt\nyellow/ui/buttons/dialogs/YellowWeaponSwitchDialog\n*L\n25#1:37,2\n*E\n"})
 public class YellowWeaponSwitchDialog
 extends BaseDialog {
     public YellowWeaponSwitchDialog() {

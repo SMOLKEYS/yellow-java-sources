@@ -13,7 +13,7 @@ import yellow.type.NameableWeapon;
 import kotlin.Metadata;
 import mindustry.ui.dialogs.BaseDialog;
 
-@Metadata(mv = { 1, 7, 1 }, k = 1, xi = 48, d1 = { "\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0016\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006¨\u0006\u0007" }, d2 = { "Lyellow/ui/buttons/dialogs/WeaponInfoDialog;", "Lmindustry/ui/dialogs/BaseDialog;", "()V", "show", "Larc/scene/ui/Dialog;", "weapon", "Lyellow/type/NameableWeapon;", "yellow-java" })
+@Metadata(mv = { 1, 8, 0 }, k = 1, xi = 48, d1 = { "\u0000\u0018\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0016\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006¨\u0006\u0007" }, d2 = { "Lyellow/ui/buttons/dialogs/WeaponInfoDialog;", "Lmindustry/ui/dialogs/BaseDialog;", "()V", "show", "Larc/scene/ui/Dialog;", "weapon", "Lyellow/type/NameableWeapon;", "yellow-java" })
 public class WeaponInfoDialog extends BaseDialog
 {
     public WeaponInfoDialog() {
@@ -31,7 +31,7 @@ public class WeaponInfoDialog extends BaseDialog
         //     1: ldc             "weapon"
         //     3: invokestatic    kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
         //     6: aload_0         /* this */
-        //     7: getfield        mindustry/ui/dialogs/BaseDialog.cont:Larc/scene/ui/layout/Table;
+        //     7: getfield        yellow/ui/buttons/dialogs/WeaponInfoDialog.cont:Larc/scene/ui/layout/Table;
         //    10: invokevirtual   arc/scene/ui/layout/Table.clear:()V
         //    13: new             Larc/scene/ui/layout/Table;
         //    16: dup            
@@ -203,7 +203,7 @@ public class WeaponInfoDialog extends BaseDialog
         //   396: invokespecial   arc/scene/ui/ScrollPane.<init>:(Larc/scene/Element;)V
         //   399: astore_3        /* paenu */
         //   400: aload_0         /* this */
-        //   401: getfield        mindustry/ui/dialogs/BaseDialog.cont:Larc/scene/ui/layout/Table;
+        //   401: getfield        yellow/ui/buttons/dialogs/WeaponInfoDialog.cont:Larc/scene/ui/layout/Table;
         //   404: aload_3         /* paenu */
         //   405: checkcast       Larc/scene/Element;
         //   408: invokevirtual   arc/scene/ui/layout/Table.add:(Larc/scene/Element;)Larc/scene/ui/layout/Cell;
@@ -218,7 +218,24 @@ public class WeaponInfoDialog extends BaseDialog
         // 
         // The error that occurred was:
         // 
-        // java.lang.NullPointerException
+        // java.lang.NullPointerException: Cannot read field "references" because "newVariable" is null
+        //     at com.strobel.decompiler.ast.AstBuilder.convertLocalVariables(AstBuilder.java:2945)
+        //     at com.strobel.decompiler.ast.AstBuilder.performStackAnalysis(AstBuilder.java:2501)
+        //     at com.strobel.decompiler.ast.AstBuilder.build(AstBuilder.java:108)
+        //     at com.strobel.decompiler.languages.java.ast.AstMethodBodyBuilder.createMethodBody(AstMethodBodyBuilder.java:203)
+        //     at com.strobel.decompiler.languages.java.ast.AstMethodBodyBuilder.createMethodBody(AstMethodBodyBuilder.java:93)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createMethodBody(AstBuilder.java:868)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createMethod(AstBuilder.java:761)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.addTypeMembers(AstBuilder.java:638)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createTypeCore(AstBuilder.java:605)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createTypeNoCache(AstBuilder.java:195)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createType(AstBuilder.java:162)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.addType(AstBuilder.java:137)
+        //     at com.strobel.decompiler.languages.java.JavaLanguage.buildAst(JavaLanguage.java:71)
+        //     at com.strobel.decompiler.languages.java.JavaLanguage.decompileType(JavaLanguage.java:59)
+        //     at com.strobel.decompiler.DecompilerDriver.decompileType(DecompilerDriver.java:333)
+        //     at com.strobel.decompiler.DecompilerDriver.decompileJar(DecompilerDriver.java:254)
+        //     at com.strobel.decompiler.DecompilerDriver.main(DecompilerDriver.java:144)
         // 
         throw new IllegalStateException("An error occurred while decompiling this method.");
     }

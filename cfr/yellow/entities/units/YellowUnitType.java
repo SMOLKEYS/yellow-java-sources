@@ -28,22 +28,24 @@ import arc.scene.ui.layout.Table;
 import arc.util.Time;
 import arc.util.Tmp;
 import kotlin.Metadata;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 import mindustry.ai.UnitCommand;
-import mindustry.gen.Unit;
 import mindustry.type.UnitType;
 import mindustry.type.Weapon;
 import mindustry.world.meta.Stat;
 import mindustry.world.meta.StatUnit;
 import org.jetbrains.annotations.NotNull;
 import yellow.Yellow;
+import yellow.entities.units.YellowUnitType;
 import yellow.entities.units.entity.YellowUnitEntity;
 import yellow.internal.util.YellowUtilsKt;
 import yellow.type.DisableableWeapon;
 import yellow.type.NameableWeapon;
 import yellow.world.meta.YellowStats;
 
-@Metadata(mv={1, 7, 1}, k=1, xi=48, d1={"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0016\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0014\u0010\u000b\u001a\u00020\f2\n\u0010\r\u001a\u00060\u000ej\u0002`\u000fH\u0016J\b\u0010\u0010\u001a\u00020\fH\u0016R\u001a\u0010\u0005\u001a\u00020\u0006X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\n\u00a8\u0006\u0011"}, d2={"Lyellow/entities/units/YellowUnitType;", "Lmindustry/type/UnitType;", "name", "", "(Ljava/lang/String;)V", "maxLives", "", "getMaxLives", "()I", "setMaxLives", "(I)V", "draw", "", "unit", "Lmindustry/gen/Unit;", "Lkotmindy/mindustry/MUnit;", "setStats", "yellow-java"})
+@Metadata(mv={1, 8, 0}, k=1, xi=48, d1={"\u0000,\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0016\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u00a2\u0006\u0002\u0010\u0004J\u0014\u0010\u000b\u001a\u00020\f2\n\u0010\r\u001a\u00060\u000ej\u0002`\u000fH\u0016J\b\u0010\u0010\u001a\u00020\fH\u0016R\u001a\u0010\u0005\u001a\u00020\u0006X\u0086\u000e\u00a2\u0006\u000e\n\u0000\u001a\u0004\b\u0007\u0010\b\"\u0004\b\t\u0010\n\u00a8\u0006\u0011"}, d2={"Lyellow/entities/units/YellowUnitType;", "Lmindustry/type/UnitType;", "name", "", "(Ljava/lang/String;)V", "maxLives", "", "getMaxLives", "()I", "setMaxLives", "(I)V", "draw", "", "unit", "Lmindustry/gen/Unit;", "Lkotmindy/mindustry/MUnit;", "setStats", "yellow-java"})
 public class YellowUnitType
 extends UnitType {
     private int maxLives;
@@ -64,7 +66,7 @@ extends UnitType {
         this.maxLives = n;
     }
 
-    public void draw(@NotNull Unit unit) {
+    public void draw(@NotNull mindustry.gen.Unit unit) {
         Intrinsics.checkNotNullParameter(unit, "unit");
         super.draw(unit);
         float s = Mathf.absin((float)Time.time, (float)16.0f, (float)1.0f);
@@ -92,7 +94,7 @@ extends UnitType {
         this.stats.remove(Stat.itemCapacity);
         this.stats.add(YellowStats.itemCapacityAlt, String.valueOf(this.itemCapacity), new Object[0]);
         this.stats.remove(Stat.weapons);
-        this.stats.add(YellowStats.weaponsAlt, arg_0 -> YellowUnitType.setStats$lambda$3(this, arg_0));
+        this.stats.add(YellowStats.weaponsAlt, arg_0 -> YellowUnitType.setStats$lambda$2(this, arg_0));
         this.stats.remove(Stat.range);
         Object[] objectArray = new Object[]{StatUnit.blocks};
         this.stats.add(YellowStats.rangeAlt, String.valueOf((int)(this.maxRange / (float)8)), objectArray);
@@ -110,35 +112,45 @@ extends UnitType {
         this.stats.add(YellowStats.dislikes, "Anything explosive, especially Thorium Reactors\n[gray](with the exception of her own weapons in Unit form)[]", new Object[0]);
     }
 
-    private static final Unit _init_$lambda$0() {
-        return (Unit)new YellowUnitEntity();
+    private static final mindustry.gen.Unit _init_$lambda$0() {
+        return (mindustry.gen.Unit)new YellowUnitEntity();
     }
 
-    private static final void setStats$lambda$3$lambda$2$lambda$1(Weapon $it) {
-        Intrinsics.checkNotNullExpressionValue($it, "it");
-        Yellow.weaponInfo.show((NameableWeapon)$it);
+    private static final void setStats$lambda$2$lambda$1(Function1 $tmp0, Object p0) {
+        Intrinsics.checkNotNullParameter($tmp0, "$tmp0");
+        $tmp0.invoke(p0);
     }
 
-    private static final void setStats$lambda$3$lambda$2(Table $me, Weapon it) {
-        Intrinsics.checkNotNullParameter($me, "$me");
-        Intrinsics.checkNotNull(it, "null cannot be cast to non-null type yellow.type.DisableableWeapon");
-        DisableableWeapon suse = (DisableableWeapon)it;
-        if (!suse.mirroredVersion) {
-            $me.add((CharSequence)suse.displayName);
-            $me.button("?", () -> YellowUnitType.setStats$lambda$3$lambda$2$lambda$1(it)).size(35.0f);
-            $me.row();
-            YellowUtilsKt.INSTANCE.seperator($me, 290.0f, 4.0f);
-            $me.row();
-        }
-    }
-
-    private static final void setStats$lambda$3(YellowUnitType this$0, Table me) {
+    private static final void setStats$lambda$2(YellowUnitType this$0, Table me) {
         Intrinsics.checkNotNullParameter((Object)this$0, "this$0");
         Intrinsics.checkNotNullParameter(me, "me");
         me.add().row();
         YellowUtilsKt.INSTANCE.seperator(me, 290.0f, 4.0f);
         me.row();
-        this$0.weapons.each(arg_0 -> YellowUnitType.setStats$lambda$3$lambda$2(me, arg_0));
+        this$0.weapons.each(arg_0 -> YellowUnitType.setStats$lambda$2$lambda$1(new Function1<Weapon, Unit>(me){
+            final /* synthetic */ Table $me;
+            {
+                this.$me = $me;
+                super(1);
+            }
+
+            public final void invoke(Weapon it) {
+                Intrinsics.checkNotNull(it, "null cannot be cast to non-null type yellow.type.DisableableWeapon");
+                DisableableWeapon suse = (DisableableWeapon)it;
+                if (!suse.mirroredVersion) {
+                    this.$me.add((CharSequence)suse.displayName);
+                    this.$me.button("?", () -> setStats.1.1.invoke$lambda$0(it)).size(35.0f);
+                    this.$me.row();
+                    YellowUtilsKt.INSTANCE.seperator(this.$me, 290.0f, 4.0f);
+                    this.$me.row();
+                }
+            }
+
+            private static final void invoke$lambda$0(Weapon $it) {
+                Intrinsics.checkNotNullExpressionValue($it, "it");
+                Yellow.weaponInfo.show((NameableWeapon)$it);
+            }
+        }, arg_0));
     }
 }
 

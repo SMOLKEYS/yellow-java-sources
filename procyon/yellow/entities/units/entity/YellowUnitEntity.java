@@ -24,17 +24,19 @@ import kotlin.jvm.functions.Function1;
 import arc.Events;
 import yellow.game.YEventType;
 import mindustry.gen.Unit;
-import mindustry.world.blocks.storage.CoreBlock$CoreBuild;
+import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.Vars;
 import arc.math.Mathf;
 import arc.struct.Seq;
 import arc.math.geom.Vec2;
 import org.jetbrains.annotations.NotNull;
+import kotlin.jvm.internal.SourceDebugExtension;
 import kotlin.Metadata;
 import yellow.game.Spellcaster;
 import mindustry.gen.UnitEntity;
 
-@Metadata(mv = { 1, 7, 1 }, k = 1, xi = 48, d1 = { "\u0000d\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0016\u0018\u0000 @2\u00020\u00012\u00020\u0002:\u0001@B\u0005¢\u0006\u0002\u0010\u0003J\u0010\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000eH\u0016J\b\u0010 \u001a\u00020\u0011H\u0016J\u0010\u0010!\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000eH\u0016J\u0018\u0010!\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000e2\u0006\u0010\"\u001a\u00020\u0005H\u0016J\u0010\u0010#\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000eH\u0016J\u0018\u0010#\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000e2\u0006\u0010\"\u001a\u00020\u0005H\u0016J\b\u0010$\u001a\u00020\u001eH\u0016J\b\u0010%\u001a\u00020\u001eH\u0002J,\u0010&\u001a\u00020\u001e\"\n\b\u0000\u0010'\u0018\u0001*\u00020(2\u0012\u0010)\u001a\u000e\u0012\u0004\u0012\u0002H'\u0012\u0004\u0012\u00020\u001e0*H\u0086\b\u00f8\u0001\u0000J\u0006\u0010+\u001a\u00020\u001eJ\b\u0010,\u001a\u00020\u000eH\u0016J\b\u0010-\u001a\u00020\u001eH\u0002J\b\u0010.\u001a\u00020\u001eH\u0002J\b\u0010/\u001a\u00020\u001eH\u0002J\b\u00100\u001a\u00020\u001eH\u0016J\u0006\u00101\u001a\u00020\u0005J\u0010\u00102\u001a\u00020\u001e2\u0006\u00102\u001a\u000203H\u0016J\b\u00104\u001a\u00020\u001eH\u0016J\b\u00105\u001a\u00020\u001eH\u0002J\u0010\u00106\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000eH\u0016J\u0010\u00107\u001a\u00020\u001e2\u0006\u00108\u001a\u00020\u000eH\u0016J\b\u00109\u001a\u00020:H\u0016J\b\u0010;\u001a\u00020<H\u0016J\b\u0010=\u001a\u00020\u001eH\u0016J\u0010\u0010>\u001a\u00020\u001e2\u0006\u0010>\u001a\u00020?H\u0016R\u001a\u0010\u0004\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0010\u001a\u00020\u0011X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R\u001a\u0010\u0016\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0007\"\u0004\b\u0018\u0010\tR\u001a\u0010\u0019\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u0007\"\u0004\b\u001b\u0010\tR\u000e\u0010\u001c\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0007\n\u0005\b\u009920\u0001¨\u0006A" }, d2 = { "Lyellow/entities/units/entity/YellowUnitEntity;", "Lmindustry/gen/UnitEntity;", "Lyellow/game/Spellcaster;", "()V", "allowsHealing", "", "getAllowsHealing", "()Z", "setAllowsHealing", "(Z)V", "everywhere", "Larc/math/geom/Vec2;", "firstDeath", "franticTeleportTime", "", "inited", "lives", "", "getLives", "()I", "setLives", "(I)V", "panicMode", "getPanicMode", "setPanicMode", "panicModeTypeTwo", "getPanicModeTypeTwo", "setPanicModeTypeTwo", "tensionPoints", "addTensionPoints", "", "amount", "classId", "damage", "withEffect", "damagePierce", "destroy", "destroyFull", "eachMountAs", "T", "Lmindustry/entities/units/WeaponMount;", "cons", "Lkotlin/Function1;", "forceKill", "getTensionPoints", "initVars", "invalidateDeath", "invalidateVars", "kill", "outOfWorldBounds", "read", "Larc/util/io/Reads;", "remove", "removeFull", "removeTensionPoints", "setTensionPoints", "set", "toString", "", "type", "Lyellow/entities/units/YellowUnitType;", "update", "write", "Larc/util/io/Writes;", "Companion", "yellow-java" })
+@Metadata(mv = { 1, 8, 0 }, k = 1, xi = 48, d1 = { "\u0000d\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\f\n\u0002\u0010\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\b\u0016\u0018\u0000 @2\u00020\u00012\u00020\u0002:\u0001@B\u0005¢\u0006\u0002\u0010\u0003J\u0010\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000eH\u0016J\b\u0010 \u001a\u00020\u0011H\u0016J\u0010\u0010!\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000eH\u0016J\u0018\u0010!\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000e2\u0006\u0010\"\u001a\u00020\u0005H\u0016J\u0010\u0010#\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000eH\u0016J\u0018\u0010#\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000e2\u0006\u0010\"\u001a\u00020\u0005H\u0016J\b\u0010$\u001a\u00020\u001eH\u0016J\b\u0010%\u001a\u00020\u001eH\u0002J,\u0010&\u001a\u00020\u001e\"\n\b\u0000\u0010'\u0018\u0001*\u00020(2\u0012\u0010)\u001a\u000e\u0012\u0004\u0012\u0002H'\u0012\u0004\u0012\u00020\u001e0*H\u0086\b\u00f8\u0001\u0000J\u0006\u0010+\u001a\u00020\u001eJ\b\u0010,\u001a\u00020\u000eH\u0016J\b\u0010-\u001a\u00020\u001eH\u0002J\b\u0010.\u001a\u00020\u001eH\u0002J\b\u0010/\u001a\u00020\u001eH\u0002J\b\u00100\u001a\u00020\u001eH\u0016J\u0006\u00101\u001a\u00020\u0005J\u0010\u00102\u001a\u00020\u001e2\u0006\u00102\u001a\u000203H\u0016J\b\u00104\u001a\u00020\u001eH\u0016J\b\u00105\u001a\u00020\u001eH\u0002J\u0010\u00106\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u000eH\u0016J\u0010\u00107\u001a\u00020\u001e2\u0006\u00108\u001a\u00020\u000eH\u0016J\b\u00109\u001a\u00020:H\u0016J\b\u0010;\u001a\u00020<H\u0016J\b\u0010=\u001a\u00020\u001eH\u0016J\u0010\u0010>\u001a\u00020\u001e2\u0006\u0010>\u001a\u00020?H\u0016R\u001a\u0010\u0004\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u0005X\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\u0010\u001a\u00020\u0011X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R\u001a\u0010\u0016\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0007\"\u0004\b\u0018\u0010\tR\u001a\u0010\u0019\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001a\u0010\u0007\"\u0004\b\u001b\u0010\tR\u000e\u0010\u001c\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000\u0082\u0002\u0007\n\u0005\b\u009920\u0001¨\u0006A" }, d2 = { "Lyellow/entities/units/entity/YellowUnitEntity;", "Lmindustry/gen/UnitEntity;", "Lyellow/game/Spellcaster;", "()V", "allowsHealing", "", "getAllowsHealing", "()Z", "setAllowsHealing", "(Z)V", "everywhere", "Larc/math/geom/Vec2;", "firstDeath", "franticTeleportTime", "", "inited", "lives", "", "getLives", "()I", "setLives", "(I)V", "panicMode", "getPanicMode", "setPanicMode", "panicModeTypeTwo", "getPanicModeTypeTwo", "setPanicModeTypeTwo", "tensionPoints", "addTensionPoints", "", "amount", "classId", "damage", "withEffect", "damagePierce", "destroy", "destroyFull", "eachMountAs", "T", "Lmindustry/entities/units/WeaponMount;", "cons", "Lkotlin/Function1;", "forceKill", "getTensionPoints", "initVars", "invalidateDeath", "invalidateVars", "kill", "outOfWorldBounds", "read", "Larc/util/io/Reads;", "remove", "removeFull", "removeTensionPoints", "setTensionPoints", "set", "toString", "", "type", "Lyellow/entities/units/YellowUnitType;", "update", "write", "Larc/util/io/Writes;", "Companion", "yellow-java" })
+@SourceDebugExtension({ "SMAP\nYellowUnitEntity.kt\nKotlin\n*S Kotlin\n*F\n+ 1 YellowUnitEntity.kt\nyellow/entities/units/entity/YellowUnitEntity\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,283:1\n114#1:286\n115#1,2:288\n117#1:291\n114#1:292\n115#1,2:294\n117#1:297\n13579#2,2:284\n13579#2:287\n13580#2:290\n13579#2:293\n13580#2:296\n*S KotlinDebug\n*F\n+ 1 YellowUnitEntity.kt\nyellow/entities/units/entity/YellowUnitEntity\n*L\n251#1:286\n251#1:288,2\n251#1:291\n268#1:292\n268#1:294,2\n268#1:297\n114#1:284,2\n251#1:287\n251#1:290\n268#1:293\n268#1:296\n*E\n" })
 public class YellowUnitEntity extends UnitEntity implements Spellcaster
 {
     @NotNull
@@ -112,7 +114,7 @@ public class YellowUnitEntity extends UnitEntity implements Spellcaster
     
     private final void invalidateDeath() {
         --this.lives;
-        this.health = super.type.health;
+        this.health = this.type.health;
         this.dead = false;
         this.elevation = 1.0f;
         if (this.lives == this.type().getMaxLives() - 1 && !this.firstDeath) {
@@ -123,12 +125,12 @@ public class YellowUnitEntity extends UnitEntity implements Spellcaster
             Vars.ui.showInfoFade(this.lives + " left!");
         }
         if (this.outOfWorldBounds()) {
-            if (super.team.data().cores.isEmpty()) {
+            if (this.team.data().cores.isEmpty()) {
                 this.x = Mathf.random(Vars.world.width()) * 8.0f;
                 this.y = Mathf.random(Vars.world.height()) * 8.0f;
             }
             else {
-                final CoreBlock$CoreBuild core = (CoreBlock$CoreBuild)super.team.data().cores.get(0);
+                final CoreBlock.CoreBuild core = (CoreBlock.CoreBuild)this.team.data().cores.get(0);
                 this.x = core.x;
                 this.y = core.y;
             }
@@ -151,7 +153,7 @@ public class YellowUnitEntity extends UnitEntity implements Spellcaster
     }
     
     public final boolean outOfWorldBounds() {
-        return super.x > Vars.world.width() * 8.0f || super.x < 0.0f || super.y > Vars.world.height() * 8.0f || super.y < 0.0f;
+        return this.x > Vars.world.width() * 8.0f || this.x < 0.0f || this.y > Vars.world.height() * 8.0f || this.y < 0.0f;
     }
     
     public final void forceKill() {
@@ -162,7 +164,7 @@ public class YellowUnitEntity extends UnitEntity implements Spellcaster
     
     @NotNull
     public YellowUnitType type() {
-        final UnitType type = super.type;
+        final UnitType type = this.type;
         Intrinsics.checkNotNull(type, "null cannot be cast to non-null type yellow.entities.units.YellowUnitType");
         return (YellowUnitType)type;
     }
@@ -208,7 +210,7 @@ public class YellowUnitEntity extends UnitEntity implements Spellcaster
             this.initVars();
         }
         this.spawnedByCore = false;
-        if (super.team.data().countType(super.type) > 1) {
+        if (this.team.data().countType(this.type) > 1) {
             YellowPermVars.INSTANCE.setRemoveAllowed(true);
             this.removeFull();
         }
@@ -216,19 +218,19 @@ public class YellowUnitEntity extends UnitEntity implements Spellcaster
             YellowPermVars.INSTANCE.setRemoveAllowed(false);
         }
         if (this.allowsHealing) {
-            Units.nearby(super.x, super.y, 120.0f, 120.0f, YellowUnitEntity::update$lambda$1);
+            Units.nearby(this.x, this.y, 120.0f, 120.0f, YellowUnitEntity::update$lambda$1);
         }
         if (this.panicMode && this.lives == 1 && this.franticTeleportTime > 0.0f) {
             this.everywhere.set((float)Mathf.random(Vars.world.width()) * 8.0f, (float)Mathf.random(Vars.world.height()) * 8.0f);
             this.x = this.everywhere.x;
             this.y = this.everywhere.y;
-            final WeaponMount[] mounts = super.mounts;
+            final WeaponMount[] mounts = this.mounts;
             Intrinsics.checkNotNullExpressionValue(mounts, "mounts");
             final WeaponMount mountus = (WeaponMount)ArraysKt___ArraysKt.random(mounts, Random.Default);
             mountus.shoot = true;
             mountus.weapon.update((Unit)this, mountus);
             if (this.panicModeTypeTwo) {
-                ((Weapon)UnitTypes.quad.weapons.get(0)).bullet.create((Teamc)this, super.x, super.y, 0.0f);
+                ((Weapon)UnitTypes.quad.weapons.get(0)).bullet.create((Teamc)this, this.x, this.y, 0.0f);
             }
             --this.franticTeleportTime;
         }
@@ -252,7 +254,7 @@ public class YellowUnitEntity extends UnitEntity implements Spellcaster
     
     @NotNull
     public String toString() {
-        return this.isValid() ? ("YellowUnitEntity#" + super.id + ':' + super.type.name) : ("(invalid) YellowUnitEntity#" + super.id);
+        return this.isValid() ? ("YellowUnitEntity#" + this.id + ':' + this.type.name) : ("(invalid) YellowUnitEntity#" + this.id);
     }
     
     public void write(@NotNull final Writes write) {
@@ -351,7 +353,7 @@ public class YellowUnitEntity extends UnitEntity implements Spellcaster
         entities = new Seq();
     }
     
-    @Metadata(mv = { 1, 7, 1 }, k = 1, xi = 48, d1 = { "\u0000 \n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\"\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048\u0006X\u0087\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\u0006\u0010\u0002\u001a\u0004\b\u0007\u0010\bR\u0011\u0010\t\u001a\u00020\n¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\f¨\u0006\r" }, d2 = { "Lyellow/entities/units/entity/YellowUnitEntity$Companion;", "", "()V", "entities", "Larc/struct/Seq;", "Lyellow/entities/units/entity/YellowUnitEntity;", "getEntities$annotations", "getEntities", "()Larc/struct/Seq;", "mappingId", "", "getMappingId", "()I", "yellow-java" })
+    @Metadata(mv = { 1, 8, 0 }, k = 1, xi = 48, d1 = { "\u0000 \n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0003\b\u0086\u0003\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002R\"\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048\u0006X\u0087\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\u0006\u0010\u0002\u001a\u0004\b\u0007\u0010\bR\u0011\u0010\t\u001a\u00020\n¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\f¨\u0006\r" }, d2 = { "Lyellow/entities/units/entity/YellowUnitEntity$Companion;", "", "()V", "entities", "Larc/struct/Seq;", "Lyellow/entities/units/entity/YellowUnitEntity;", "getEntities$annotations", "getEntities", "()Larc/struct/Seq;", "mappingId", "", "getMappingId", "()I", "yellow-java" })
     public static final class Companion
     {
         private Companion() {

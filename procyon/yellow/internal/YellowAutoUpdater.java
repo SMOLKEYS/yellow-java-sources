@@ -11,7 +11,6 @@ import kotmindy.mindustry.ui.QuickUIKt;
 import kotlin.jvm.functions.Function0;
 import yellow.internal.util.YellowUtils;
 import yellow.Yellow;
-import arc.util.Http$HttpResponse;
 import kotlin.jvm.JvmStatic;
 import arc.util.Http;
 import kotlin.jvm.internal.Intrinsics;
@@ -19,7 +18,7 @@ import arc.util.serialization.JsonReader;
 import org.jetbrains.annotations.NotNull;
 import kotlin.Metadata;
 
-@Metadata(mv = { 1, 7, 1 }, k = 1, xi = 48, d1 = { "\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u000b\u001a\u00020\fH\u0007R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u0011\u0010\u0007\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\n¨\u0006\r" }, d2 = { "Lyellow/internal/YellowAutoUpdater;", "", "()V", "jsr", "Larc/util/serialization/JsonReader;", "getJsr", "()Larc/util/serialization/JsonReader;", "vtype", "", "getVtype", "()Ljava/lang/String;", "start", "", "yellow-java" })
+@Metadata(mv = { 1, 8, 0 }, k = 1, xi = 48, d1 = { "\u0000\"\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u000b\u001a\u00020\fH\u0007R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006R\u0011\u0010\u0007\u001a\u00020\b¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\n¨\u0006\r" }, d2 = { "Lyellow/internal/YellowAutoUpdater;", "", "()V", "jsr", "Larc/util/serialization/JsonReader;", "getJsr", "()Larc/util/serialization/JsonReader;", "vtype", "", "getVtype", "()Ljava/lang/String;", "start", "", "yellow-java" })
 public final class YellowAutoUpdater
 {
     @NotNull
@@ -54,7 +53,7 @@ public final class YellowAutoUpdater
         }
     }
     
-    private static final void start$lambda$0(final Http$HttpResponse it) {
+    private static final void start$lambda$0(final Http.HttpResponse it) {
         final String res = it.getResultAsString();
         try {
             final YellowAutoUpdater instance = YellowAutoUpdater.INSTANCE;
@@ -86,7 +85,7 @@ public final class YellowAutoUpdater
         Core.app.post(YellowAutoUpdater::start$lambda$2$lambda$1);
     }
     
-    private static final void start$lambda$3(final Http$HttpResponse it) {
+    private static final void start$lambda$3(final Http.HttpResponse it) {
         final String res = it.getResultAsString();
         try {
             final YellowAutoUpdater instance = YellowAutoUpdater.INSTANCE;

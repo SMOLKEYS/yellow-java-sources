@@ -5,7 +5,7 @@
 package yellow.ui;
 
 import arc.Core;
-import mindustry.ui.dialogs.SettingsMenuDialog$SettingsTable;
+import mindustry.ui.dialogs.SettingsMenuDialog;
 import kotlin.jvm.internal.Intrinsics;
 import yellow.YellowPermVars;
 import kotlin.jvm.JvmStatic;
@@ -14,9 +14,11 @@ import arc.scene.style.Drawable;
 import mindustry.Vars;
 import arc.files.Fi;
 import org.jetbrains.annotations.NotNull;
+import kotlin.jvm.internal.SourceDebugExtension;
 import kotlin.Metadata;
 
-@Metadata(mv = { 1, 7, 1 }, k = 1, xi = 48, d1 = { "\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u0007\u001a\u00020\bH\u0007R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\t" }, d2 = { "Lyellow/ui/YellowSettings;", "", "()V", "tmpDir", "Larc/files/Fi;", "getTmpDir", "()Larc/files/Fi;", "load", "", "yellow-java" })
+@Metadata(mv = { 1, 8, 0 }, k = 1, xi = 48, d1 = { "\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\u0007\u001a\u00020\bH\u0007R\u0011\u0010\u0003\u001a\u00020\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006¨\u0006\t" }, d2 = { "Lyellow/ui/YellowSettings;", "", "()V", "tmpDir", "Larc/files/Fi;", "getTmpDir", "()Larc/files/Fi;", "load", "", "yellow-java" })
+@SourceDebugExtension({ "SMAP\nYellowSettings.kt\nKotlin\n*S Kotlin\n*F\n+ 1 YellowSettings.kt\nyellow/ui/YellowSettings\n+ 2 ButtonDsl.kt\ncom/github/mnemotechnician/mkui/extensions/dsl/ButtonDslKt\n*L\n1#1,66:1\n30#2,10:67\n30#2,10:77\n*S KotlinDebug\n*F\n+ 1 YellowSettings.kt\nyellow/ui/YellowSettings\n*L\n50#1:67,10\n60#1:77,10\n*E\n" })
 public final class YellowSettings
 {
     @NotNull
@@ -69,7 +71,7 @@ public final class YellowSettings
         }
     }
     
-    private static final void load$lambda$7(final SettingsMenuDialog$SettingsTable table) {
+    private static final void load$lambda$7(final SettingsMenuDialog.SettingsTable table) {
         // 
         // This method could not be decompiled.
         // 
@@ -208,7 +210,24 @@ public final class YellowSettings
         // 
         // The error that occurred was:
         // 
-        // java.lang.NullPointerException
+        // java.lang.NullPointerException: Cannot read field "references" because "newVariable" is null
+        //     at com.strobel.decompiler.ast.AstBuilder.convertLocalVariables(AstBuilder.java:2945)
+        //     at com.strobel.decompiler.ast.AstBuilder.performStackAnalysis(AstBuilder.java:2501)
+        //     at com.strobel.decompiler.ast.AstBuilder.build(AstBuilder.java:108)
+        //     at com.strobel.decompiler.languages.java.ast.AstMethodBodyBuilder.createMethodBody(AstMethodBodyBuilder.java:203)
+        //     at com.strobel.decompiler.languages.java.ast.AstMethodBodyBuilder.createMethodBody(AstMethodBodyBuilder.java:93)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createMethodBody(AstBuilder.java:868)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createMethod(AstBuilder.java:761)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.addTypeMembers(AstBuilder.java:638)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createTypeCore(AstBuilder.java:605)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createTypeNoCache(AstBuilder.java:195)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createType(AstBuilder.java:162)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.addType(AstBuilder.java:137)
+        //     at com.strobel.decompiler.languages.java.JavaLanguage.buildAst(JavaLanguage.java:71)
+        //     at com.strobel.decompiler.languages.java.JavaLanguage.decompileType(JavaLanguage.java:59)
+        //     at com.strobel.decompiler.DecompilerDriver.decompileType(DecompilerDriver.java:333)
+        //     at com.strobel.decompiler.DecompilerDriver.decompileJar(DecompilerDriver.java:254)
+        //     at com.strobel.decompiler.DecompilerDriver.main(DecompilerDriver.java:144)
         // 
         throw new IllegalStateException("An error occurred while decompiling this method.");
     }

@@ -4,7 +4,7 @@
 
 package yellow.internal;
 
-import mindustry.mod.Mods$ModMeta;
+import mindustry.mod.Mods;
 import mindustry.Vars;
 import kotlin.jvm.internal.Intrinsics;
 import arc.files.Fi;
@@ -12,9 +12,11 @@ import java.util.List;
 import kotlin.jvm.JvmStatic;
 import arc.struct.Seq;
 import org.jetbrains.annotations.NotNull;
+import kotlin.jvm.internal.SourceDebugExtension;
 import kotlin.Metadata;
 
-@Metadata(mv = { 1, 7, 1 }, k = 1, xi = 48, d1 = { "\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0000\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\f\u001a\u00020\rH\u0007J\u0016\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\u00050\u000f*\b\u0012\u0004\u0012\u00020\u00050\u000fJ\u0010\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00050\u000f*\u00020\u0011R\"\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048\u0006X\u0087\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\u0006\u0010\u0002\u001a\u0004\b\u0007\u0010\bR\"\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048\u0006X\u0087\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\n\u0010\u0002\u001a\u0004\b\u000b\u0010\b¨\u0006\u0012" }, d2 = { "Lyellow/internal/MetaChaos;", "", "()V", "descriptions", "Larc/struct/Seq;", "", "getDescriptions$annotations", "getDescriptions", "()Larc/struct/Seq;", "subtitles", "getSubtitles$annotations", "getSubtitles", "load", "", "filterComments", "", "readLines", "Larc/files/Fi;", "yellow-java" })
+@Metadata(mv = { 1, 8, 0 }, k = 1, xi = 48, d1 = { "\u0000*\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0007\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0000\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\b\u0010\f\u001a\u00020\rH\u0007J\u0016\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\u00050\u000f*\b\u0012\u0004\u0012\u00020\u00050\u000fJ\u0010\u0010\u0010\u001a\b\u0012\u0004\u0012\u00020\u00050\u000f*\u00020\u0011R\"\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048\u0006X\u0087\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\u0006\u0010\u0002\u001a\u0004\b\u0007\u0010\bR\"\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048\u0006X\u0087\u0004¢\u0006\u000e\n\u0000\u0012\u0004\b\n\u0010\u0002\u001a\u0004\b\u000b\u0010\b¨\u0006\u0012" }, d2 = { "Lyellow/internal/MetaChaos;", "", "()V", "descriptions", "Larc/struct/Seq;", "", "getDescriptions$annotations", "getDescriptions", "()Larc/struct/Seq;", "subtitles", "getSubtitles$annotations", "getSubtitles", "load", "", "filterComments", "", "readLines", "Larc/files/Fi;", "yellow-java" })
+@SourceDebugExtension({ "SMAP\nMetaChaos.kt\nKotlin\n*S Kotlin\n*F\n+ 1 MetaChaos.kt\nyellow/internal/MetaChaos\n+ 2 _Collections.kt\nkotlin/collections/CollectionsKt___CollectionsKt\n*L\n1#1,32:1\n766#2:33\n857#2,2:34\n*S KotlinDebug\n*F\n+ 1 MetaChaos.kt\nyellow/internal/MetaChaos\n*L\n14#1:33\n14#1:34,2\n*E\n" })
 public final class MetaChaos
 {
     @NotNull
@@ -100,7 +102,24 @@ public final class MetaChaos
         // 
         // The error that occurred was:
         // 
-        // java.lang.NullPointerException
+        // java.lang.NullPointerException: Cannot read field "references" because "newVariable" is null
+        //     at com.strobel.decompiler.ast.AstBuilder.convertLocalVariables(AstBuilder.java:2945)
+        //     at com.strobel.decompiler.ast.AstBuilder.performStackAnalysis(AstBuilder.java:2501)
+        //     at com.strobel.decompiler.ast.AstBuilder.build(AstBuilder.java:108)
+        //     at com.strobel.decompiler.languages.java.ast.AstMethodBodyBuilder.createMethodBody(AstMethodBodyBuilder.java:203)
+        //     at com.strobel.decompiler.languages.java.ast.AstMethodBodyBuilder.createMethodBody(AstMethodBodyBuilder.java:93)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createMethodBody(AstBuilder.java:868)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createMethod(AstBuilder.java:761)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.addTypeMembers(AstBuilder.java:638)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createTypeCore(AstBuilder.java:605)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createTypeNoCache(AstBuilder.java:195)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.createType(AstBuilder.java:162)
+        //     at com.strobel.decompiler.languages.java.ast.AstBuilder.addType(AstBuilder.java:137)
+        //     at com.strobel.decompiler.languages.java.JavaLanguage.buildAst(JavaLanguage.java:71)
+        //     at com.strobel.decompiler.languages.java.JavaLanguage.decompileType(JavaLanguage.java:59)
+        //     at com.strobel.decompiler.DecompilerDriver.decompileType(DecompilerDriver.java:333)
+        //     at com.strobel.decompiler.DecompilerDriver.decompileJar(DecompilerDriver.java:254)
+        //     at com.strobel.decompiler.DecompilerDriver.main(DecompilerDriver.java:144)
         // 
         throw new IllegalStateException("An error occurred while decompiling this method.");
     }
@@ -115,7 +134,7 @@ public final class MetaChaos
     
     @JvmStatic
     public static final void load() {
-        final Mods$ModMeta meta = Vars.mods.getMod("yellow-java").meta;
+        final Mods.ModMeta meta = Vars.mods.getMod("yellow-java").meta;
         final MetaChaos instance = MetaChaos.INSTANCE;
         MetaChaos.subtitles.add((Object)meta.subtitle);
         final MetaChaos instance2 = MetaChaos.INSTANCE;

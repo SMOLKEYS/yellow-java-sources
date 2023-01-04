@@ -27,6 +27,7 @@ import arc.scene.ui.layout.Table;
 import kotlin.Metadata;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.SourceDebugExtension;
 import kotlin.text.StringsKt;
 import mindustry.Vars;
 import mindustry.gen.Icon;
@@ -37,7 +38,8 @@ import yellow.YellowPermVars;
 import yellow.internal.util.YellowUtils;
 import yellow.ui.YellowSettings;
 
-@Metadata(mv={1, 7, 1}, k=1, xi=48, d1={"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002J\b\u0010\u0007\u001a\u00020\bH\u0007R\u0011\u0010\u0003\u001a\u00020\u0004\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006\u00a8\u0006\t"}, d2={"Lyellow/ui/YellowSettings;", "", "()V", "tmpDir", "Larc/files/Fi;", "getTmpDir", "()Larc/files/Fi;", "load", "", "yellow-java"})
+@Metadata(mv={1, 8, 0}, k=1, xi=48, d1={"\u0000\u001a\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002J\b\u0010\u0007\u001a\u00020\bH\u0007R\u0011\u0010\u0003\u001a\u00020\u0004\u00a2\u0006\b\n\u0000\u001a\u0004\b\u0005\u0010\u0006\u00a8\u0006\t"}, d2={"Lyellow/ui/YellowSettings;", "", "()V", "tmpDir", "Larc/files/Fi;", "getTmpDir", "()Larc/files/Fi;", "load", "", "yellow-java"})
+@SourceDebugExtension(value={"SMAP\nYellowSettings.kt\nKotlin\n*S Kotlin\n*F\n+ 1 YellowSettings.kt\nyellow/ui/YellowSettings\n+ 2 ButtonDsl.kt\ncom/github/mnemotechnician/mkui/extensions/dsl/ButtonDslKt\n*L\n1#1,66:1\n30#2,10:67\n30#2,10:77\n*S KotlinDebug\n*F\n+ 1 YellowSettings.kt\nyellow/ui/YellowSettings\n*L\n50#1:67,10\n60#1:77,10\n*E\n"})
 public final class YellowSettings {
     @NotNull
     public static final YellowSettings INSTANCE = new YellowSettings();

@@ -9,7 +9,6 @@
  *  arc.scene.ui.layout.Cell
  *  arc.scene.ui.layout.Table
  *  arc.struct.Seq
- *  arc.util.Log
  *  arc.util.serialization.JsonReader
  *  arc.util.serialization.JsonValue
  */
@@ -22,17 +21,21 @@ import arc.scene.ui.Image;
 import arc.scene.ui.layout.Cell;
 import arc.scene.ui.layout.Table;
 import arc.struct.Seq;
-import arc.util.Log;
 import arc.util.serialization.JsonReader;
 import arc.util.serialization.JsonValue;
 import java.util.List;
 import kotlin.Metadata;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.jvm.internal.SourceDebugExtension;
 import kotlin.ranges.IntRange;
 import kotlin.text.StringsKt;
 import org.jetbrains.annotations.NotNull;
+import yellow.internal.util.YellowUtilsKt;
 
-@Metadata(mv={1, 7, 1}, k=1, xi=48, d1={"\u0000b\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0002\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002J\u0016\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\bJ\u001c\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u0010J$\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0010J,\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00102\u0006\u0010\u0012\u001a\u00020\u0013J\u000e\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u0017J\u001c\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u00172\f\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u001a0\u0019J#\u0010\u001b\u001a\u00020\u001a*\u00020\u001c2\u0012\u0010\u001d\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u001a0\u001e\"\u00020\u001a\u00a2\u0006\u0002\u0010\u001fR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006 "}, d2={"Lyellow/internal/util/YellowUtilsKt;", "", "()V", "jsr", "Larc/util/serialization/JsonReader;", "rangeOf", "Lkotlin/ranges/IntRange;", "one", "", "two", "seperator", "Larc/scene/ui/layout/Cell;", "Larc/scene/ui/Image;", "table", "Larc/scene/ui/layout/Table;", "width", "", "height", "color", "Larc/graphics/Color;", "traverse", "", "dir", "Larc/files/Fi;", "dump", "Larc/struct/Seq;", "", "getValues", "Larc/util/serialization/JsonValue;", "values", "", "(Larc/util/serialization/JsonValue;[Ljava/lang/String;)Ljava/lang/String;", "yellow-java"})
+@Metadata(mv={1, 8, 0}, k=1, xi=48, d1={"\u0000b\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\b\u0002\b\u00c6\u0002\u0018\u00002\u00020\u0001B\u0007\b\u0002\u00a2\u0006\u0002\u0010\u0002J\u0016\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\bJ\u001c\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u0010J$\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0010J,\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u00102\u0006\u0010\u0012\u001a\u00020\u0013J\u000e\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u0017J\u001c\u0010\u0014\u001a\u00020\u00152\u0006\u0010\u0016\u001a\u00020\u00172\f\u0010\u0018\u001a\b\u0012\u0004\u0012\u00020\u001a0\u0019J#\u0010\u001b\u001a\u00020\u001a*\u00020\u001c2\u0012\u0010\u001d\u001a\n\u0012\u0006\b\u0001\u0012\u00020\u001a0\u001e\"\u00020\u001a\u00a2\u0006\u0002\u0010\u001fR\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006 "}, d2={"Lyellow/internal/util/YellowUtilsKt;", "", "()V", "jsr", "Larc/util/serialization/JsonReader;", "rangeOf", "Lkotlin/ranges/IntRange;", "one", "", "two", "seperator", "Larc/scene/ui/layout/Cell;", "Larc/scene/ui/Image;", "table", "Larc/scene/ui/layout/Table;", "width", "", "height", "color", "Larc/graphics/Color;", "traverse", "", "dir", "Larc/files/Fi;", "dump", "Larc/struct/Seq;", "", "getValues", "Larc/util/serialization/JsonValue;", "values", "", "(Larc/util/serialization/JsonValue;[Ljava/lang/String;)Ljava/lang/String;", "yellow-java"})
+@SourceDebugExtension(value={"SMAP\nYellowUtilsKt.kt\nKotlin\n*S Kotlin\n*F\n+ 1 YellowUtilsKt.kt\nyellow/internal/util/YellowUtilsKt\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,80:1\n13579#2,2:81\n*S KotlinDebug\n*F\n+ 1 YellowUtilsKt.kt\nyellow/internal/util/YellowUtilsKt\n*L\n66#1:81,2\n*E\n"})
 public final class YellowUtilsKt {
     @NotNull
     public static final YellowUtilsKt INSTANCE = new YellowUtilsKt();
@@ -53,7 +56,23 @@ public final class YellowUtilsKt {
         if (!dir.exists()) {
             return;
         }
-        dir.seq().each(arg_0 -> YellowUtilsKt.traverse$lambda$0(dump, arg_0));
+        dir.seq().each(arg_0 -> YellowUtilsKt.traverse$lambda$0(new Function1<Fi, Unit>(dump){
+            final /* synthetic */ Seq<String> $dump;
+            {
+                this.$dump = $dump;
+                super(1);
+            }
+
+            public final void invoke(@NotNull Fi su) {
+                Intrinsics.checkNotNullParameter(su, "su");
+                if (su.isDirectory()) {
+                    this.$dump.add((Object)StringsKt.removeSuffix(StringsKt.replace$default(su.pathWithoutExtension().toString(), "/", ".", false, 4, null), (CharSequence)"."));
+                }
+                if (!su.seq().isEmpty()) {
+                    YellowUtilsKt.INSTANCE.traverse(su, this.$dump);
+                }
+            }
+        }, arg_0));
     }
 
     public final void traverse(@NotNull Fi dir) {
@@ -61,7 +80,7 @@ public final class YellowUtilsKt {
         if (!dir.exists()) {
             return;
         }
-        dir.seq().each(YellowUtilsKt::traverse$lambda$1);
+        dir.seq().each(arg_0 -> YellowUtilsKt.traverse$lambda$1(traverse.2.INSTANCE, arg_0));
     }
 
     @NotNull
@@ -111,25 +130,14 @@ public final class YellowUtilsKt {
         return cell;
     }
 
-    private static final void traverse$lambda$0(Seq $dump, Fi su) {
-        Intrinsics.checkNotNullParameter($dump, "$dump");
-        Intrinsics.checkNotNullParameter(su, "su");
-        if (su.isDirectory()) {
-            $dump.add((Object)StringsKt.removeSuffix(StringsKt.replace$default(su.pathWithoutExtension().toString(), "/", ".", false, 4, null), (CharSequence)"."));
-        }
-        if (!su.seq().isEmpty()) {
-            INSTANCE.traverse(su, (Seq<String>)$dump);
-        }
+    private static final void traverse$lambda$0(Function1 $tmp0, Object p0) {
+        Intrinsics.checkNotNullParameter($tmp0, "$tmp0");
+        $tmp0.invoke(p0);
     }
 
-    private static final void traverse$lambda$1(Fi su) {
-        Intrinsics.checkNotNullParameter(su, "su");
-        if (su.isDirectory()) {
-            Log.info((String)StringsKt.removeSuffix(StringsKt.replace$default(su.pathWithoutExtension().toString(), "/", ".", false, 4, null), (CharSequence)"."), (Object[])new Object[0]);
-        }
-        if (!su.seq().isEmpty()) {
-            INSTANCE.traverse(su);
-        }
+    private static final void traverse$lambda$1(Function1 $tmp0, Object p0) {
+        Intrinsics.checkNotNullParameter($tmp0, "$tmp0");
+        $tmp0.invoke(p0);
     }
 }
 
